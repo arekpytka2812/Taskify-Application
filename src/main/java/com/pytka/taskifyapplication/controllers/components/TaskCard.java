@@ -1,16 +1,13 @@
 package com.pytka.taskifyapplication.controllers.components;
 
 
-import com.pytka.taskifyapplication.SpringMainApplication;
 import com.pytka.taskifyapplication.TaskifyApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import org.springframework.context.ApplicationContext;
 
 import java.io.IOException;
 
@@ -30,11 +27,13 @@ public class TaskCard extends StackPane {
 
 
     public TaskCard(){
-
+        System.out.println("chuj");
         FXMLLoader fxmlLoader = new FXMLLoader(TaskifyApplication.class.getResource("/ui/components/TaskCard.fxml"));
 
         fxmlLoader.setController(this);
         fxmlLoader.setRoot(this);
+
+        System.out.println("chuj 2");
 
         try {
             fxmlLoader.load();
@@ -42,6 +41,7 @@ public class TaskCard extends StackPane {
             throw new RuntimeException(e);
         }
 
+        System.out.println("chuj 23");
         this.setOnMouseClicked(event -> System.out.println("Yiiipee"));
     }
 
@@ -55,6 +55,8 @@ public class TaskCard extends StackPane {
         this.taskNameLabel.setText(taskNameLabel);
         this.taskPriorityLabel.setText(taskPriorityLabel);
         this.finishTimeLabel.setText(finishTimeLabel);
+
+        System.out.println("chuj 4");
 
         this.setOnMouseClicked(event -> System.out.println("Yiiipee" + taskNameLabel));
     }
