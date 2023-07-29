@@ -1,71 +1,56 @@
-package com.pytka.taskifyapplication.controllers;
+package com.pytka.taskifyapplication.controllers.auth;
 
 import com.pytka.taskifyapplication.SpringMainApplication;
 import com.pytka.taskifyapplication.TaskifyApplication;
+import com.pytka.taskifyapplication.auth.model.AuthRequest;
 import com.pytka.taskifyapplication.auth.model.AuthResponse;
-import com.pytka.taskifyapplication.auth.model.RegisterRequest;
 import com.pytka.taskifyapplication.auth.service.AuthService;
-import com.pytka.taskifyapplication.utlis.ParentLoader;
-import com.pytka.taskifyapplication.utlis.PasswordChecker;
 import com.pytka.taskifyapplication.utlis.StageChanger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.context.event.SpringApplicationEvent;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class RegisterPageController {
+public class LoginPageController {
 
     @FXML
-    private Button loginButton;
-
-    @FXML
-    private TextField firstnameField;
-
-    @FXML
-    private TextField lastnameField;
+    private Button registerButton;
 
     @FXML
     private TextField emailField;
 
     @FXML
-    private TextField usernameField;
+    private PasswordField passwordField;
 
     @FXML
-    private PasswordField passwordField;
+    private CheckBox rememberMeCheckBox;
 
     @FXML
     private Label errorLabel;
 
     @FXML
-    private Button registerButton;
+    private Button loginButton;
 
     private final AuthService authService;
 
     private final ApplicationContext context;
 
-    public void loginButtonPressed(ActionEvent event){
-
+    public void registerButtonPressed(ActionEvent event){
         Stage stage = StageChanger.changeStage(
                 event,
-                "/ui/auth/LoginPage.fxml",
+                "/ui/auth/RegisterPage.fxml",
                 context
         );
 
         stage.show();
     }
 
-    public void registerButtonPressed(ActionEvent event){
+    public void loginButtonPressed(ActionEvent event){
 
         errorLabel.setText("");
 
@@ -74,21 +59,12 @@ public class RegisterPageController {
             return;
         }
 
-        if(!PasswordChecker.isValidPassword(passwordField.getText())){
-            errorLabel.setText("Password to weak!");
-            return;
-        }
-
-        RegisterRequest request = RegisterRequest.builder()
-                .firstname(firstnameField.getText())
-                .lastname(lastnameField.getText())
+        AuthRequest request = AuthRequest.builder()
                 .email(emailField.getText())
-                .username(usernameField.getText())
                 .password(passwordField.getText())
                 .build();
 
-        AuthResponse response = authService.register(request);
-
+        AuthResponse response = this.authService.login(request);
 
         if(response == null){
             errorLabel.setText("Something went wrong!");
@@ -97,6 +73,9 @@ public class RegisterPageController {
 
         SpringMainApplication.AUTH_TOKEN = response.getToken();
         SpringMainApplication.USER_ID = response.getID();
+
+        // TODO: handle remember me checkBox
+
 
         Stage stage = StageChanger.changeStage(
                 event,
@@ -108,9 +87,6 @@ public class RegisterPageController {
     }
 
     private boolean areFieldsEmpty(){
-        return firstnameField.getText().isEmpty() &&
-                lastnameField.getText().isEmpty() &&
-                emailField.getText().isEmpty() &&
-                passwordField.getText().isEmpty();
+        return emailField.getText().isEmpty() && passwordField.getText().isEmpty();
     }
 }
