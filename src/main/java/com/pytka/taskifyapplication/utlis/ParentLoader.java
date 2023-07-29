@@ -17,7 +17,7 @@ public class ParentLoader {
             root = loader.load();
         }
         catch (IOException e){
-            System.out.println("chuuuuj");
+            System.out.println("Man");
         }
 
         return root;
