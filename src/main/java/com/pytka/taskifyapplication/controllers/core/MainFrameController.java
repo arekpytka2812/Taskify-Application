@@ -4,6 +4,7 @@ package com.pytka.taskifyapplication.controllers.core;
 import com.pytka.taskifyapplication.SpringMainApplication;
 import com.pytka.taskifyapplication.controllers.components.SidePanel;
 import com.pytka.taskifyapplication.controllers.components.TaskCard;
+import com.pytka.taskifyapplication.controllers.components.WorkspaceCard;
 import com.pytka.taskifyapplication.models.TaskDTO;
 import com.pytka.taskifyapplication.models.WorkspaceDTO;
 import com.pytka.taskifyapplication.models.WorkspaceLiteDTO;
@@ -26,7 +27,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static javafx.scene.layout.BorderPane.setMargin;
 
@@ -47,9 +50,11 @@ public class MainFrameController {
     @FXML
     private SidePanel userPanel;
 
-    private MainCenterPanel mainCenterPanel;
+    private MainCenterPanel currentCenterPanel;
 
     private TaskPanel taskPanel;
+
+    private Map<WorkspaceCard, MainCenterPanel> centerPanelsMap;
 
     private boolean workspacesPanelShown = false;
 
@@ -69,29 +74,58 @@ public class MainFrameController {
     @FXML
     public void initialize() {
 
-        List<WorkspaceLiteDTO> workspaceLiteDTOs = this.workspaceService.getWorkspacesLiteByUserID();
+        this.centerPanelsMap = new HashMap<>();
+
+        List<WorkspaceDTO> workspaceDTOs = this.workspaceService.getWorkspacesByUserID();
 
         this.setupSidePanels();
 
-        for(WorkspaceLiteDTO workspace : workspaceLiteDTOs){
-            this.workspacesPanel.getMainBox().getChildren().add(new Label(workspace.getName()));
-        }
-
-        this.mainCenterPanel = new MainCenterPanel();
         this.taskPanel = new TaskPanel();
 
-        this.mainCenterPanel.setWorkspaceID(1L);
-        this.mainCenterPanel.setTaskService(taskService);
-        this.mainCenterPanel.refreshTasks();
-        this.mainCenterPanel.getTasksContainer().getChildren().stream()
-                .forEach(task -> {
-                    task.setOnMouseClicked(this::taskCardPressed);
-                });
+        for(WorkspaceDTO workspace : workspaceDTOs){
+
+            WorkspaceCard workspaceCard = new WorkspaceCard();
+            workspaceCard.getWorkspaceName().setText(workspace.getName());
+
+            MainCenterPanel mainCenterPanel = new MainCenterPanel();
+            mainCenterPanel.setWorkspaceID(workspace.getID());
+            mainCenterPanel.setTaskService(taskService);
+            mainCenterPanel.setTasks(workspace.getTasks());
+
+            mainCenterPanel.getTasksContainer().getChildren().stream()
+                    .forEach(task -> task.setOnMouseClicked(this::taskCardPressed));
+
+            this.centerPanelsMap.put(workspaceCard, mainCenterPanel);
+
+            workspaceCard.setOnMouseClicked(e -> {
+
+                this.currentCenterPanel = centerPanelsMap.get(workspaceCard);
+
+                this.currentCenterPanel.refreshTasks();
+                this.currentCenterPanel.getTasksContainer().getChildren().stream()
+                        .forEach(task -> {
+                            task.setOnMouseClicked(this::taskCardPressed);
+                        });
+
+                this.centerPane.getChildren().clear();
+                this.centerPane.getChildren().add(currentCenterPanel);
+
+            });
+
+            WorkspaceCard addWorkspace = new WorkspaceCard();
+            addWorkspace.getWorkspaceName().setText(" + add new workspace!");
+            addWorkspace.setOnMouseClicked(event -> {
+                // TODO: add workapce asynchowsult
+            });
+
+            this.workspacesPanel.getMainBox().getChildren().add(workspaceCard);
+
+        }
 
         this.taskPanel.setTaskService(taskService);
         this.taskPanel.getExitButton().setOnClicked(this::taskPanelOnExitButtonPressed);
 
-        centerPane.getChildren().addAll(mainCenterPanel);
+        centerPane.getChildren().addAll();
     }
 
     private void setupSidePanels(){
@@ -174,15 +208,15 @@ public class MainFrameController {
     private void taskPanelOnExitButtonPressed(MouseEvent event){
         
         this.centerPane.getChildren().clear();
-        this.centerPane.getChildren().add(this.mainCenterPanel);
+        this.centerPane.getChildren().add(this.currentCenterPanel);
 
-        this.mainCenterPanel.refreshTasks();
-        this.mainCenterPanel.getTasksContainer().getChildren().stream()
+        this.currentCenterPanel.refreshTasks();
+        this.currentCenterPanel.getTasksContainer().getChildren().stream()
                 .forEach(task -> {
                     task.setOnMouseClicked(this::taskCardPressed);
                 });
 
-        this.mainCenterPanel.toFront();
+        this.currentCenterPanel.toFront();
     }
 
     private void taskCardPressed(MouseEvent event){
