@@ -36,7 +36,7 @@ public class TaskifyApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        Parent parent = ParentLoader.loadParent(TaskifyApplication.class, "/ui/ui.fxml", context);
+        Parent parent = ParentLoader.loadParent(TaskifyApplication.class, "/ui/auth/LoginPage.fxml", context);
         stage.setScene(new Scene(parent, SpringMainApplication.MAX_SCREEN_WIDTH, SpringMainApplication.CURRENT_SCREEN_HEIGHT));
         stage.setTitle("TaskifyApp");
         stage.show();
