@@ -24,6 +24,7 @@ public class UIController {
 
     @FXML
     public void initialize(){
+
         leftPanel.setDirection(HideablePanel.DirectionToVisibility.RIGHT);
         leftPanel.setMaxLeftX(-350);
         leftPanel.setMaxRightX(0);
@@ -31,8 +32,8 @@ public class UIController {
         rightPanel.setMaxRightX(SpringMainApplication.CURRENT_SCREEN_WIDTH - 50);
         rightPanel.setMaxLeftX(SpringMainApplication.CURRENT_SCREEN_WIDTH - 400);
 
-        leftPanel.repaint();
-        rightPanel.repaint();
+        leftPanel.repaint("/icons/user.png");
+        rightPanel.repaint("/icons/settings-icon.jpg");
     }
 
 }

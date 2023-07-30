@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.HBox;
@@ -27,7 +28,7 @@ public class HideablePanel extends VBox {
     private HBox bottomBox;
 
     @FXML
-    private Button showButton;
+    private IconButton showButton;
 
     private boolean visibility = true;
 
@@ -60,7 +61,7 @@ public class HideablePanel extends VBox {
 
         mainBox.setBackground(new Background(new BackgroundFill(Paint.valueOf("#0C8CE9"), null, null)));
 
-        showButton.setOnAction(this::switchVisibility);
+        showButton.setOnClicked(this::switchVisibility);
     }
 
     public HideablePanel(boolean visibility, DirectionToVisibility direction, int maxLeftX, int maxRightX){
@@ -76,11 +77,11 @@ public class HideablePanel extends VBox {
         else{
             bottomBox.setAlignment(Pos.CENTER_RIGHT);
         }
-
-
     }
 
-    public void repaint(){
+    public void repaint(String imagePath){
+
+        showButton.setImageAndBackground(imagePath, new Background(new BackgroundFill(Paint.valueOf("#111111"), null, null)));
 
         if(direction == DirectionToVisibility.LEFT){
             bottomBox.setAlignment(Pos.CENTER_LEFT);
@@ -93,7 +94,7 @@ public class HideablePanel extends VBox {
     }
 
 
-    private void switchVisibility(ActionEvent event){
+    private void switchVisibility(MouseEvent event){
 
         if(visibility){
             if(direction == DirectionToVisibility.LEFT){
