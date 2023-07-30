@@ -22,9 +22,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UIController {
 
-
     @FXML
     private HBox tasksContainer;
+
+    @FXML
+    private HideablePanel leftPanel;
+
+    @FXML
+    private HideablePanel rightPanel;
 
 
     private final TaskService taskService;
@@ -32,13 +37,12 @@ public class UIController {
     private List<WorkspaceDTO> workspaceDTOs;
 
     private int workspacesCounter = 0;
-    private HideablePanel leftPanel;
+
 
     @FXML
-    private HideablePanel rightPanel;
+    public void initialize() {
 
-    @FXML
-    public void initialize(){
+        this.taskService.getTasks(this::addTaskToHBox);
 
         leftPanel.setDirection(HideablePanel.DirectionToVisibility.RIGHT);
         leftPanel.setMaxLeftX(-350);
@@ -49,8 +53,6 @@ public class UIController {
 
         leftPanel.repaint("/icons/user.png");
         rightPanel.repaint("/icons/settings-icon.jpg");
-    public void initialize() {
-        this.taskService.getTasks(this::addTaskToHBox);
     }
 
     private void addTaskToHBox(List<WorkspaceDTO> workspaceDTOs){

@@ -6,9 +6,10 @@
 
 <?import com.pytka.taskifyapplication.controllers.components.TaskCard?>
 <?import com.pytka.taskifyapplication.controllers.components.HideablePanel?>
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pytka.taskifyapplication.controllers.UIController">
+<HBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pytka.taskifyapplication.controllers.UIController">
    <children>
       <HideablePanel fx:id="leftPanel"/>
+      <HBox fx:id="tasksContainer"/>
       <HideablePanel fx:id="rightPanel"/>
    </children>
-</AnchorPane>
+</HBox>
