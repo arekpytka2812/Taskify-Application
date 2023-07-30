@@ -1,24 +1,19 @@
 package com.pytka.taskifyapplication.controllers.auth;
 
 import com.pytka.taskifyapplication.SpringMainApplication;
-import com.pytka.taskifyapplication.TaskifyApplication;
 import com.pytka.taskifyapplication.auth.model.AuthResponse;
 import com.pytka.taskifyapplication.auth.model.RegisterRequest;
 import com.pytka.taskifyapplication.auth.service.AuthService;
-import com.pytka.taskifyapplication.utlis.ParentLoader;
 import com.pytka.taskifyapplication.utlis.PasswordChecker;
 import com.pytka.taskifyapplication.utlis.StageChanger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.context.event.SpringApplicationEvent;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
@@ -100,7 +95,7 @@ public class RegisterPageController {
 
         Stage stage = StageChanger.changeStage(
                 event,
-                "/ui/ui.fxml",
+                "/ui/core/MainFrame.fxml",
                 context
         );
 

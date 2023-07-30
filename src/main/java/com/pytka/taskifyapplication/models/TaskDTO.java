@@ -29,6 +29,9 @@ public class TaskDTO extends AbstractDTO{
     @JsonProperty("priority")
     private String priority;
 
+    @JsonProperty("notifications")
+    private Boolean notifications;
+
     @JsonProperty("workspaceID")
     private Long workspaceID;
 

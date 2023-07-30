@@ -20,15 +20,33 @@ public class TaskServiceImpl implements TaskService {
 
     private final RequestService requestService;
 
+//    @Override
+//    public void getTasks(TaskCallback callback) {
+//        String endpointURI = "/workspace/" + SpringMainApplication.USER_ID;
+//        CompletableFuture.supplyAsync(() -> this.requestService.getListRequest(WorkspaceDTO.class, endpointURI))
+//                .thenAccept(callback::onTaskFetched)
+//                .exceptionally(ex ->{
+//                    callback.onTaskFetched(null);
+//                    return null;
+//                });
+//
+//
+//    }
+
     @Override
-    public void getTasks(TaskCallback callback) {
+    public List<WorkspaceDTO> getTasks(){
+
         String endpointURI = "/workspace/" + SpringMainApplication.USER_ID;
-        CompletableFuture.supplyAsync(() -> this.requestService.getListRequest(WorkspaceDTO.class, endpointURI))
-                .thenAccept(callback::onTaskFetched)
-                .exceptionally(ex ->{
-                    callback.onTaskFetched(null);
-                    return null;
-                });
+
+        return this.requestService.getListRequest(WorkspaceDTO.class, endpointURI);
+    }
+
+    @Override
+    public List<TaskDTO> getTasksByWorkspaceID(Long workspaceID){
+
+        String endpointURL = "/tasks/get/" + workspaceID;
+
+        return this.requestService.getListRequest(TaskDTO.class, endpointURL);
     }
 
     @Override

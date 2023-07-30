@@ -13,6 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>TaskifyApplication</name>
     <description>TaskifyApplication</description>
+    <packaging>jar</packaging>
     <properties>
         <java.version>17</java.version>
     </properties>
@@ -74,11 +75,6 @@
         <!--  JAVA FX  -->
         <dependency>
             <groupId>org.openjfx</groupId>
-            <artifactId>javafx</artifactId>
-            <version>17.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
             <artifactId>javafx-base</artifactId>
             <version>17.0.2</version>
         </dependency>
@@ -104,15 +100,27 @@
             <version>6.2.3</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.pytka.taskifyapplication</groupId>
+            <artifactId>FxCustomComponents</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+            </plugin>
+
+            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
