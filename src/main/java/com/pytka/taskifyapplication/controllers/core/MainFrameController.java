@@ -6,12 +6,15 @@ import com.pytka.taskifyapplication.controllers.components.SidePanel;
 import com.pytka.taskifyapplication.controllers.components.TaskCard;
 import com.pytka.taskifyapplication.models.TaskDTO;
 import com.pytka.taskifyapplication.models.WorkspaceDTO;
+import com.pytka.taskifyapplication.models.WorkspaceLiteDTO;
 import com.pytka.taskifyapplication.services.TaskService;
+import com.pytka.taskifyapplication.services.WorkspaceService;
 import com.pytka.taskifyapplication.utlis.ParentLoader;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -61,10 +64,37 @@ public class MainFrameController {
 
     private final TaskService taskService;
 
+    private final WorkspaceService workspaceService;
+
     @FXML
     public void initialize() {
 
-        // TODO: lista nazw workspacow i idkow
+        List<WorkspaceLiteDTO> workspaceLiteDTOs = this.workspaceService.getWorkspacesLiteByUserID();
+
+        this.setupSidePanels();
+
+        for(WorkspaceLiteDTO workspace : workspaceLiteDTOs){
+            this.workspacesPanel.getMainBox().getChildren().add(new Label(workspace.getName()));
+        }
+
+        this.mainCenterPanel = new MainCenterPanel();
+        this.taskPanel = new TaskPanel();
+
+        this.mainCenterPanel.setWorkspaceID(1L);
+        this.mainCenterPanel.setTaskService(taskService);
+        this.mainCenterPanel.refreshTasks();
+        this.mainCenterPanel.getTasksContainer().getChildren().stream()
+                .forEach(task -> {
+                    task.setOnMouseClicked(this::taskCardPressed);
+                });
+
+        this.taskPanel.setTaskService(taskService);
+        this.taskPanel.getExitButton().setOnClicked(this::taskPanelOnExitButtonPressed);
+
+        centerPane.getChildren().addAll(mainCenterPanel);
+    }
+
+    private void setupSidePanels(){
 
         workspacesPanel.repaint("/icons/user.png");
         userPanel.repaint("/icons/settings-icon.jpg");
@@ -101,27 +131,12 @@ public class MainFrameController {
                     userPanel.translateXProperty().doubleValue(),
                     0,
                     0
-                    ));
+            ));
             setMargin(centerPane, new Insets(0,0,0,0));
 
         });
-
-        this.mainCenterPanel = new MainCenterPanel();
-        this.taskPanel = new TaskPanel();
-
-        this.mainCenterPanel.setWorkspaceID(1L);
-        this.mainCenterPanel.setTaskService(taskService);
-        this.mainCenterPanel.refreshTasks();
-        this.mainCenterPanel.getTasksContainer().getChildren().stream()
-                .forEach(task -> {
-                    task.setOnMouseClicked(this::taskCardPressed);
-                });
-
-        this.taskPanel.setTaskService(taskService);
-        this.taskPanel.getExitButton().setOnClicked(this::taskPanelOnExitButtonPressed);
-
-        centerPane.getChildren().addAll(mainCenterPanel);
     }
+
 
     private void translateUserPanel(MouseEvent event) {
         if(userPanelShown){
