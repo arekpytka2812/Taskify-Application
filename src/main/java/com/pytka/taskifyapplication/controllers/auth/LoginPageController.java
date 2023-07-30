@@ -1,7 +1,6 @@
 package com.pytka.taskifyapplication.controllers.auth;
 
 import com.pytka.taskifyapplication.SpringMainApplication;
-import com.pytka.taskifyapplication.TaskifyApplication;
 import com.pytka.taskifyapplication.auth.model.AuthRequest;
 import com.pytka.taskifyapplication.auth.model.AuthResponse;
 import com.pytka.taskifyapplication.auth.service.AuthService;
@@ -79,7 +78,7 @@ public class LoginPageController {
 
         Stage stage = StageChanger.changeStage(
                 event,
-                "/ui/ui.fxml",
+                "/ui/core/MainFrame.fxml",
                 context
         );
 

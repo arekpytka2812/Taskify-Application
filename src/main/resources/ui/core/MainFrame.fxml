@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+
+<?import com.pytka.taskifyapplication.controllers.components.SidePanel?>
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="com.pytka.taskifyapplication.controllers.core.MainFrameController">
+   <left>
+       <SidePanel fx:id="workspacesPanel"/>
+   </left>
+    <center>
+        <StackPane fx:id="centerPane" focusTraversable="true" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+    </center>
+    <right>
+        <SidePanel fx:id="userPanel"/>
+    </right>
+</BorderPane>

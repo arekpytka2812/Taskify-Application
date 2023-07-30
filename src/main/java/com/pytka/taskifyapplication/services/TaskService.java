@@ -11,7 +11,11 @@ import java.util.concurrent.CompletableFuture;
 
 public interface TaskService {
 
-    void getTasks(TaskServiceImpl.TaskCallback callback);
+ //   void getTasks(TaskServiceImpl.TaskCallback callback);
+
+    List<WorkspaceDTO> getTasks();
+
+    List<TaskDTO> getTasksByWorkspaceID(Long workspaceID);
 
     boolean addTask(TaskDTO taskDTO);
     boolean updateTask(TaskDTO taskDTO);

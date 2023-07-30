@@ -1,5 +1,6 @@
 package com.pytka.taskifyapplication.utlis;
 
+import com.pytka.taskifyapplication.SpringMainApplication;
 import com.pytka.taskifyapplication.TaskifyApplication;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
@@ -15,7 +16,10 @@ public class StageChanger {
                 TaskifyApplication.class,
                 filePath,
                 ac
-        )));
+        ),
+                SpringMainApplication.MAX_SCREEN_WIDTH,
+        SpringMainApplication.MAX_SCREEN_HEIGHT
+        ));
 
         return stage;
     }
