@@ -1,6 +1,8 @@
 package com.pytka.taskifyapplication.controllers;
 
 
+import com.pytka.taskifyapplication.SpringMainApplication;
+import com.pytka.taskifyapplication.controllers.components.HideablePanel;
 import com.pytka.taskifyapplication.controllers.components.TaskCard;
 import com.pytka.taskifyapplication.models.TaskDTO;
 import com.pytka.taskifyapplication.models.WorkspaceDTO;
@@ -30,8 +32,23 @@ public class UIController {
     private List<WorkspaceDTO> workspaceDTOs;
 
     private int workspacesCounter = 0;
+    private HideablePanel leftPanel;
 
     @FXML
+    private HideablePanel rightPanel;
+
+    @FXML
+    public void initialize(){
+
+        leftPanel.setDirection(HideablePanel.DirectionToVisibility.RIGHT);
+        leftPanel.setMaxLeftX(-350);
+        leftPanel.setMaxRightX(0);
+        rightPanel.setDirection(HideablePanel.DirectionToVisibility.LEFT);
+        rightPanel.setMaxRightX(SpringMainApplication.CURRENT_SCREEN_WIDTH - 50);
+        rightPanel.setMaxLeftX(SpringMainApplication.CURRENT_SCREEN_WIDTH - 400);
+
+        leftPanel.repaint("/icons/user.png");
+        rightPanel.repaint("/icons/settings-icon.jpg");
     public void initialize() {
         this.taskService.getTasks(this::addTaskToHBox);
     }
