@@ -2,7 +2,9 @@ package com.pytka.taskifyapplication.controllers.core;
 
 import com.pytka.taskifyapplication.SpringMainApplication;
 import com.pytka.taskifyapplication.controllers.components.IconButton;
+import com.pytka.taskifyapplication.controllers.components.UpdateInfoCard;
 import com.pytka.taskifyapplication.models.TaskDTO;
+import com.pytka.taskifyapplication.models.UpdateInfoDTO;
 import com.pytka.taskifyapplication.services.TaskService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -137,8 +139,18 @@ public class TaskPanel extends VBox{
 
         this.taskNameField.setText(this.task.getName());
         this.descriptionField.setText(this.task.getDescription());
-        // TODO: notification is on?
-        // TODO: updateInfo card and then read date to card and add cards to vbox
+      //  this.notificationsOn.setSelected(this.task.getNotifications());
+
+        if(this.updatesContainer.getChildren() != null){
+            this.updatesContainer.getChildren().clear();
+        }
+
+        for(UpdateInfoDTO updateInfoDTO : this.task.getTaskUpdates()){
+            this.updatesContainer.getChildren().add(
+                    new UpdateInfoCard(updateInfoDTO.getUpdateInfoDate().toString(), updateInfoDTO.getDescription())
+            );
+        }
+
         this.taskTypeField.setText(this.task.getTaskType());
         this.priorityField.setText(this.task.getPriority());
 
