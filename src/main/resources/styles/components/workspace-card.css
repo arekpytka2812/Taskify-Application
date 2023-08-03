@@ -1,0 +1,10 @@
+.workspace-card{
+    -fx-padding: 10;
+    -fx-background-radius: 20;
+    -fx-background-color: transparent;
+    -fx-opacity: 40;
+}
+
+.shadow{
+    -fx-effect: dropShadow(three-pass-box, rgba(0,0,0,0.1), 10.0, 0.0, 0.0, 10.0);
+}

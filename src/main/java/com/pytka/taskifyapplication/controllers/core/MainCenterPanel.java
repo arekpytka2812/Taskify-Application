@@ -51,6 +51,11 @@ public class MainCenterPanel extends VBox {
     }
 
     public void setTasks(List<TaskDTO> tasks){
+
+        if(this.tasksContainer.getChildren() != null){
+            this.tasksContainer.getChildren().clear();
+        }
+
         this.tasks = tasks;
 
         for(TaskDTO task : tasks){

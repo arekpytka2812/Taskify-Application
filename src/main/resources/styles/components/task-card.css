@@ -1,5 +1,16 @@
 .task-card{
-    -fx-background-color: #78A23A;
+    -fx-background-color: #dbdbdb;
+    -fx-alignment: center;
     -fx-opacity: 70;
     -fx-padding: 10;
+    -fx-background-radius: 20;
+}
+
+.shadow{
+    -fx-effect: dropShadow(three-pass-box, rgba(0,0,0,0.1), 10.0, 0.0, 0.0, 10.0);
+}
+
+.task-label{
+    -fx-background-radius: 20;
+    -fx-alignment: center;
 }
