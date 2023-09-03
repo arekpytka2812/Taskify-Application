@@ -2,6 +2,7 @@ package com.pytka.taskifyapplication.controllers.core;
 
 import com.pytka.taskifyapplication.SpringMainApplication;
 import com.pytka.taskifyapplication.controllers.ICenterPane;
+import com.pytka.taskifyapplication.controllers.components.AddUpdateInfoPanel;
 import com.pytka.taskifyapplication.controllers.components.IconButton;
 import com.pytka.taskifyapplication.controllers.components.UpdateInfoCard;
 import com.pytka.taskifyapplication.models.TaskDTO;
@@ -19,8 +20,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import lombok.Getter;
-import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -183,17 +182,18 @@ public class TaskPanel extends VBox implements ICenterPane {
         if(this.task.getExpirationDate() == null){
             return;
         }
+
         this.expDatePicker.getEditor().setText(this.task.getExpirationDate().toString());
     }
 
-
-    public void setTaskService(TaskService taskService){
-        this.taskService = taskService;
-    }
-
     private void onAddUpdateInfoButtonPressed(ActionEvent event){
-
-        // this.taskService.addTaskUpdate(task.getID(),)
+        PageNavigator.getInstance().push(
+                new AddUpdateInfoPanel(
+                        task.getName(),
+                        task.getID(),
+                        taskService
+                )
+        );
     }
 
     private void onUpdateTaskButtonPressed(ActionEvent event){
@@ -201,18 +201,17 @@ public class TaskPanel extends VBox implements ICenterPane {
     }
 
     private void onDeleteTaskButtonPressed(MouseEvent event){
-        boolean response = this.taskService.deleteTask(task.getID());
 
-        if(response){
-            System.out.println("YIIIIPPPPEEE");
-        }
+        this.taskService.deleteTask(task.getID());
 
         exitButton.getOnMouseClicked().handle(event);
     }
 
     @Override
     public void refresh(){
-
+        this.setTaskData(
+                this.taskService.getTaskByID(task.getID())
+        );
     }
 
 

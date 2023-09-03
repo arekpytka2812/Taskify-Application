@@ -44,9 +44,17 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public List<TaskDTO> getTasksByWorkspaceID(Long workspaceID){
 
-        String endpointURL = "/tasks/get/" + workspaceID;
+        String endpointURL = "/tasks/getAll/" + workspaceID;
 
         return this.requestService.getListRequest(TaskDTO.class, endpointURL);
+    }
+
+    @Override
+    public TaskDTO getTaskByID(Long taskID){
+
+        String endpointURL = "/tasks/get/" + taskID;
+
+        return this.requestService.getRequest(TaskDTO.class, endpointURL);
     }
 
     @Override
@@ -66,7 +74,7 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public boolean addTaskUpdate(Long taskID, UpdateInfoDTO updateInfoDTO) {
+    public boolean addUpdateInfo(Long taskID, UpdateInfoDTO updateInfoDTO) {
 
         String endpointURI = "/tasks/updateInfo/" + taskID;
 

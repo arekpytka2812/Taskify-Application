@@ -5,9 +5,12 @@ import com.pytka.taskifyapplication.controllers.ICenterPane;
 import com.pytka.taskifyapplication.controllers.components.TaskCard;
 import com.pytka.taskifyapplication.models.TaskDTO;
 import com.pytka.taskifyapplication.services.TaskService;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -20,6 +23,9 @@ import java.util.List;
 @Setter
 @Getter
 public class MainCenterPanel extends VBox implements ICenterPane {
+
+    @FXML
+    private Button addTaskButton;
 
     @FXML
     private HBox topBox;
@@ -49,6 +55,7 @@ public class MainCenterPanel extends VBox implements ICenterPane {
             throw new RuntimeException(e);
         }
 
+        this.addTaskButton.setOnMouseClicked(this::addTaskButtonPressed);
     }
 
     public void setTasks(List<TaskDTO> tasks){
@@ -76,11 +83,13 @@ public class MainCenterPanel extends VBox implements ICenterPane {
         }
     }
 
+    private void addTaskButtonPressed(MouseEvent event){
+
+    }
+
     @Override
     public void refresh(){
         refreshTasks();
-
-
     }
 
 }
