@@ -1,6 +1,7 @@
 package com.pytka.taskifyapplication.controllers.core;
 
 import com.pytka.taskifyapplication.SpringMainApplication;
+import com.pytka.taskifyapplication.controllers.ICenterPane;
 import com.pytka.taskifyapplication.controllers.components.TaskCard;
 import com.pytka.taskifyapplication.models.TaskDTO;
 import com.pytka.taskifyapplication.services.TaskService;
@@ -18,7 +19,7 @@ import java.util.List;
 
 @Setter
 @Getter
-public class MainCenterPanel extends VBox {
+public class MainCenterPanel extends VBox implements ICenterPane {
 
     @FXML
     private HBox topBox;
@@ -75,6 +76,11 @@ public class MainCenterPanel extends VBox {
         }
     }
 
+    @Override
+    public void refresh(){
+        refreshTasks();
 
+
+    }
 
 }
