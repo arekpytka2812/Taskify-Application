@@ -10,6 +10,7 @@ import com.pytka.taskifyapplication.models.WorkspaceDTO;
 import com.pytka.taskifyapplication.models.WorkspaceLiteDTO;
 import com.pytka.taskifyapplication.services.TaskService;
 import com.pytka.taskifyapplication.services.WorkspaceService;
+import com.pytka.taskifyapplication.utlis.PageNavigator;
 import com.pytka.taskifyapplication.utlis.ParentLoader;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
@@ -52,8 +53,6 @@ public class MainFrameController {
 
     private MainCenterPanel currentCenterPanel;
 
-    private TaskPanel taskPanel;
-
     private Map<WorkspaceCard, MainCenterPanel> centerPanelsMap;
 
     private boolean workspacesPanelShown = false;
@@ -65,8 +64,6 @@ public class MainFrameController {
 
     private TranslateTransition userPanelTransition;
 
-    private final ApplicationContext ac;
-
     private final TaskService taskService;
 
     private final WorkspaceService workspaceService;
@@ -74,13 +71,10 @@ public class MainFrameController {
     @FXML
     public void initialize() {
 
+        this.setupSidePanels();
         this.centerPanelsMap = new HashMap<>();
 
         List<WorkspaceDTO> workspaceDTOs = this.workspaceService.getWorkspacesByUserID();
-
-        this.setupSidePanels();
-
-        this.taskPanel = new TaskPanel();
 
         for(WorkspaceDTO workspace : workspaceDTOs){
 
@@ -92,40 +86,35 @@ public class MainFrameController {
             mainCenterPanel.setTaskService(taskService);
             mainCenterPanel.setTasks(workspace.getTasks());
 
-            mainCenterPanel.getTasksContainer().getChildren().stream()
-                    .forEach(task -> task.setOnMouseClicked(this::taskCardPressed));
-
             this.centerPanelsMap.put(workspaceCard, mainCenterPanel);
 
             workspaceCard.setOnMouseClicked(e -> {
 
                 this.currentCenterPanel = centerPanelsMap.get(workspaceCard);
-
                 this.currentCenterPanel.refreshTasks();
-                this.currentCenterPanel.getTasksContainer().getChildren().stream()
-                        .forEach(task -> {
-                            task.setOnMouseClicked(this::taskCardPressed);
-                        });
 
-                this.centerPane.getChildren().clear();
-                this.centerPane.getChildren().add(currentCenterPanel);
+                PageNavigator.getInstance().pop();
+                PageNavigator.getInstance().push(this.currentCenterPanel);
 
-            });
-
-            WorkspaceCard addWorkspace = new WorkspaceCard();
-            addWorkspace.getWorkspaceName().setText(" + add new workspace!");
-            addWorkspace.setOnMouseClicked(event -> {
-                // TODO: add workapce asynchowsult
             });
 
             this.workspacesPanel.getMainBox().getChildren().add(workspaceCard);
-
+            this.currentCenterPanel = centerPanelsMap.get(workspaceCard);
         }
 
-        this.taskPanel.setTaskService(taskService);
-        this.taskPanel.getExitButton().setOnClicked(this::taskPanelOnExitButtonPressed);
+        WorkspaceCard addWorkspace = new WorkspaceCard();
+        addWorkspace.getWorkspaceName().setText(" + add new workspace!");
+        addWorkspace.setOnMouseClicked(event -> {
+            // TODO: add workapce asynchowsult
+        });
+
+        this.workspacesPanel.getMainBox().getChildren().add(addWorkspace);
 
         centerPane.getChildren().addAll();
+
+        PageNavigator.getInstance().setRoot(centerPane);
+        PageNavigator.getInstance().push(currentCenterPanel);
+
     }
 
     private void setupSidePanels(){
@@ -205,28 +194,26 @@ public class MainFrameController {
         workspacesPanelTransition.play();
     }
 
-    private void taskPanelOnExitButtonPressed(MouseEvent event){
-        
-        this.centerPane.getChildren().clear();
-        this.centerPane.getChildren().add(this.currentCenterPanel);
+//    private void taskPanelOnExitButtonPressed(MouseEvent event){
+//
+//        this.currentCenterPanel.refreshTasks();
+//        this.currentCenterPanel.getTasksContainer().getChildren().stream()
+//                .forEach(task -> {
+//                    task.setOnMouseClicked(this::taskCardPressed);
+//                });
+//
+////        this.centerPane.getChildren().clear();
+////        this.centerPane.getChildren().add(this.currentCenterPanel);
+////        this.currentCenterPanel.toFront();
+//
+//        PageNavigator.getInstance().pop();
+//    }
 
-        this.currentCenterPanel.refreshTasks();
-        this.currentCenterPanel.getTasksContainer().getChildren().stream()
-                .forEach(task -> {
-                    task.setOnMouseClicked(this::taskCardPressed);
-                });
-
-        this.currentCenterPanel.toFront();
-    }
-
-    private void taskCardPressed(MouseEvent event){
-
-        this.taskPanel.setTaskData(((TaskCard)event.getSource()).getTask());
-
-        this.centerPane.getChildren().clear();
-        this.centerPane.getChildren().add(this.taskPanel);
-
-        this.taskPanel.toFront();
-    }
+//    private void taskCardPressed(MouseEvent event){
+//
+//        this.taskPanel.setTaskData(((TaskCard)event.getSource()).getTask());
+//
+//        PageNavigator.getInstance().push(taskPanel);
+//    }
 
 }
