@@ -1,11 +1,13 @@
 package com.pytka.taskifyapplication.controllers.core;
 
 import com.pytka.taskifyapplication.SpringMainApplication;
+import com.pytka.taskifyapplication.controllers.ICenterPane;
 import com.pytka.taskifyapplication.controllers.components.IconButton;
 import com.pytka.taskifyapplication.controllers.components.UpdateInfoCard;
 import com.pytka.taskifyapplication.models.TaskDTO;
 import com.pytka.taskifyapplication.models.UpdateInfoDTO;
 import com.pytka.taskifyapplication.services.TaskService;
+import com.pytka.taskifyapplication.utlis.PageNavigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,12 +19,16 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import lombok.Getter;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
 
 @Getter
-public class TaskPanel extends VBox{
+@Component
+public class TaskPanel extends VBox implements ICenterPane {
 
     @FXML
     private IconButton exitButton;
@@ -127,6 +133,23 @@ public class TaskPanel extends VBox{
         this.addUpdateInfoButton.setOnAction(this::onAddUpdateInfoButtonPressed);
         this.updateTaskButton.setOnAction(this::onUpdateTaskButtonPressed);
         this.deleteTaskButton.setOnMouseClicked(this::onDeleteTaskButtonPressed);
+
+        this.exitButton.setOnClicked(e -> {
+            PageNavigator.getInstance().pop();
+        });
+    }
+
+    public TaskPanel(TaskDTO task){
+
+        this();
+        this.setTaskData(task);
+    }
+
+    public TaskPanel(TaskService taskService, TaskDTO task){
+
+        this();
+        this.taskService = taskService;
+        this.setTaskData(task);
     }
 
     public void setTaskData(TaskDTO task){
@@ -163,6 +186,7 @@ public class TaskPanel extends VBox{
         this.expDatePicker.getEditor().setText(this.task.getExpirationDate().toString());
     }
 
+
     public void setTaskService(TaskService taskService){
         this.taskService = taskService;
     }
@@ -185,5 +209,11 @@ public class TaskPanel extends VBox{
 
         exitButton.getOnMouseClicked().handle(event);
     }
+
+    @Override
+    public void refresh(){
+
+    }
+
 
 }
