@@ -128,10 +128,10 @@ public class MainFrameController {
         setMargin(workspacesPanel, new Insets(0, workspacesPanel.translateXProperty().doubleValue(), 0, 0));
 
         userPanel.setPrefWidth(400);
-        userPanel.setTranslateX(350);
+//        userPanel.setTranslateX(350);
         userPanel.setBottomBoxAlignment(SidePanel.PanelSide.RIGHT);
 
-        setMargin(centerPane, new Insets(0,0,0,0));
+        setMargin(centerPane, new Insets(0,SpringMainApplication.MAX_SCREEN_WIDTH - userPanel.translateXProperty().doubleValue(),0,0));
 
         workspacesPanelTransition =
                 new TranslateTransition(Duration.millis(200), workspacesPanel);
@@ -149,13 +149,7 @@ public class MainFrameController {
         });
 
         userPanel.translateXProperty().addListener(e -> {
-            setMargin(centerPane, new Insets(
-                    0,
-                    userPanel.translateXProperty().doubleValue(),
-                    0,
-                    0
-            ));
-            setMargin(centerPane, new Insets(0,0,0,0));
+            setMargin(centerPane, new Insets(0,SpringMainApplication.MAX_SCREEN_WIDTH - userPanel.translateXProperty().doubleValue(),0,0));
 
         });
     }
@@ -193,27 +187,5 @@ public class MainFrameController {
 
         workspacesPanelTransition.play();
     }
-
-//    private void taskPanelOnExitButtonPressed(MouseEvent event){
-//
-//        this.currentCenterPanel.refreshTasks();
-//        this.currentCenterPanel.getTasksContainer().getChildren().stream()
-//                .forEach(task -> {
-//                    task.setOnMouseClicked(this::taskCardPressed);
-//                });
-//
-////        this.centerPane.getChildren().clear();
-////        this.centerPane.getChildren().add(this.currentCenterPanel);
-////        this.currentCenterPanel.toFront();
-//
-//        PageNavigator.getInstance().pop();
-//    }
-
-//    private void taskCardPressed(MouseEvent event){
-//
-//        this.taskPanel.setTaskData(((TaskCard)event.getSource()).getTask());
-//
-//        PageNavigator.getInstance().push(taskPanel);
-//    }
 
 }

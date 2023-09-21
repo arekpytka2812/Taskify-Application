@@ -89,7 +89,6 @@ public class SidePanel extends VBox {
             bottomBox.setAlignment(Pos.CENTER_LEFT);
         }
 
-        this.requestLayout();
     }
 
     public void setBottomBoxAlignment(PanelSide side){
@@ -103,6 +102,5 @@ public class SidePanel extends VBox {
             bottomBox.setAlignment(Pos.CENTER_LEFT);
         }
 
-        this.requestLayout();
     }
 }
