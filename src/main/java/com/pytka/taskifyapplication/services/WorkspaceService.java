@@ -13,4 +13,5 @@ public interface WorkspaceService {
 
     // TODO: finish service when needed
 
+    void addWorkspace(WorkspaceLiteDTO workspaceDTO);
 }
