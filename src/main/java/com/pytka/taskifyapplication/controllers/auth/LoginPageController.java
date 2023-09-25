@@ -5,6 +5,7 @@ import com.pytka.taskifyapplication.auth.model.AuthRequest;
 import com.pytka.taskifyapplication.auth.model.AuthResponse;
 import com.pytka.taskifyapplication.auth.service.AuthService;
 import com.pytka.taskifyapplication.utlis.StageChanger;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -38,6 +39,12 @@ public class LoginPageController {
     private final AuthService authService;
 
     private final ApplicationContext context;
+
+    @FXML
+    private void initialize(){
+        Platform.runLater(() -> emailField.requestFocus());
+    }
+
 
     public void registerButtonPressed(ActionEvent event){
         Stage stage = StageChanger.changeStage(

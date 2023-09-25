@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-
-<fx:root type="StackPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-   stylesheets="/styles/components/task-card.css" styleClass="task-card">
+<fx:root alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="106.0" prefWidth="178.0" stylesheets="@../../styles/components/task-card.css" type="VBox" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="106.0" prefWidth="178.0">
-         <children>
-            <Label fx:id="taskNameLabel" text="" textFill="red"/>
-            <Label fx:id="taskPriorityLabel" text="" textFill="aqua"/>
-            <Label fx:id="finishTimeLabel" text="" textFill="black"/>
-         </children>
-      </VBox>
+      <Label fx:id="taskNameLabel" prefHeight="38.0" prefWidth="160.0" styleClass="task-label" stylesheets="@../../styles/components/task-card.css" text="test" />
+      <Label fx:id="taskPriorityLabel" alignment="CENTER" prefHeight="27.0" prefWidth="149.0" styleClass="task-label" stylesheets="@../../styles/components/task-card.css" text="tes" />
+      <Label fx:id="finishTimeLabel" alignment="CENTER" prefHeight="17.0" prefWidth="154.0" styleClass="task-label" stylesheets="@../../styles/components/task-card.css" text="test" />
    </children>
+   <styleClass>
+      <String fx:value="task-card" />
+      <String fx:value="shadow" />
+   </styleClass>
 </fx:root>

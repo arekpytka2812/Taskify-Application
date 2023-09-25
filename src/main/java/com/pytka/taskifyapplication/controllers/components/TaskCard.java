@@ -18,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.context.ApplicationContext;
@@ -29,7 +30,7 @@ import java.io.IOException;
 
 @Setter
 @Getter
-public class TaskCard extends StackPane {
+public class TaskCard extends VBox {
 
     @FXML
     private Label taskNameLabel;

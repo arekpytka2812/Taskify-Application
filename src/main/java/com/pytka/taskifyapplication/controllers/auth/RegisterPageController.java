@@ -6,6 +6,7 @@ import com.pytka.taskifyapplication.auth.model.RegisterRequest;
 import com.pytka.taskifyapplication.auth.service.AuthService;
 import com.pytka.taskifyapplication.utlis.PasswordChecker;
 import com.pytka.taskifyapplication.utlis.StageChanger;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -48,6 +49,12 @@ public class RegisterPageController {
     private final AuthService authService;
 
     private final ApplicationContext context;
+
+    @FXML
+    private void initialize(){
+        Platform.runLater(() -> firstnameField.requestFocus());
+    }
+
 
     public void loginButtonPressed(ActionEvent event){
 

@@ -1,0 +1,33 @@
+.center-panel{
+    -fx-background-color: #504099;
+    -fx-background-radius: 10;
+}
+
+.top-bar{
+    -fx-alignment: center;
+    -fx-padding: 10;
+}
+
+.tasks-container{
+    -fx-background-color: #974EC3;
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+    -fx-alignment: center;
+    -fx-border-insets: 5;
+    -fx-background-insets: 5;
+}
+
+.add-task-button{
+    -fx-background-radius: 5;
+    -fx-padding: 10px;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;
+}
+
+.sorting-cb{
+    -fx-background-radius: 5;
+}
+
+.shadow{
+    -fx-effect: dropShadow(three-pass-box, rgba(0,0,0,0.1), 10.0, 0.0, 0.0, 10.0);
+}

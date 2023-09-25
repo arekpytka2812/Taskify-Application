@@ -1,0 +1,32 @@
+.card{
+    -fx-padding: 20px;
+    -fx-background-color: #313866;
+    -fx-spacing: 10px;
+    -fx-alignment: center;
+    -fx-border-radius: 10px;
+}
+
+.text-field{
+    -fx-border-color: rgba(255,255,255,0.6);
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-text-alignment: center;
+    -fx-font-scale: 12px;
+    -fx-pref-width: 350px;
+    -fx-max-width: 350px;
+    -fx-text-fill: rgba(255,255,255,0.6);
+}
+
+.label{
+    -fx-font-scale: 18px;
+    -fx-font-weight: bold;
+    -fx-border-insets: 10px;
+    -fx-pref-width: 180px;
+    -fx-alignment: center;
+    -fx-text-fill: #FFFFFF;
+}
+
+
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}

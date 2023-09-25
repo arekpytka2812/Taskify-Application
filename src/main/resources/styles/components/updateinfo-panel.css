@@ -1,0 +1,55 @@
+.panel{
+    -fx-padding: 20px;
+    -fx-background-color: #313866;
+    -fx-spacing: 20px;
+    -fx-alignment: center;
+}
+
+.text-area .scroll-pane{
+    -fx-border-color: #504099;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-text-alignment: center;
+    -fx-font-scale: 12px;
+    -fx-font-weight: bold;
+    -fx-pref-width: 250px;
+    -fx-max-width: 250px;
+}
+
+.text-area .scroll-pane:focused{
+    -fx-background-color: rgba(80, 64, 153, 0.7);
+    -fx-text-fill: rgba(255,255,255,0.6);
+}
+
+
+.button{
+    -fx-alignment: center;
+    -fx-background-radius: 10px;
+    -fx-pref-width: 100px;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: rgba(255,255,255,0.6);
+    -fx-border-radius: 10px;
+}
+
+.button:hover{
+    -fx-background-color: rgba(255,255,255,0.6);
+    -fx-text-fill: #504099;
+}
+
+.button:focused{
+    -fx-background-color: rgba(255,255,255,0.6);
+    -fx-text-fill: #504099;
+}
+
+
+.label{
+    -fx-font-scale: 12px;
+    -fx-font-weight: bold;
+    -fx-border-insets: 10px;
+    -fx-pref-width: 90px;
+    -fx-alignment: center;
+}
+
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}

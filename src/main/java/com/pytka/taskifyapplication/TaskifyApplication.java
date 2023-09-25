@@ -37,8 +37,12 @@ public class TaskifyApplication extends Application {
     public void start(Stage stage) throws Exception {
 
         Parent parent = ParentLoader.loadParent(TaskifyApplication.class, "/ui/auth/LoginPage.fxml", context);
-        stage.setScene(new Scene(parent, SpringMainApplication.MAX_SCREEN_WIDTH, SpringMainApplication.CURRENT_SCREEN_HEIGHT));
+        stage.setScene(new Scene(parent, 1280, 720));
         stage.setTitle("TaskifyApp");
+        stage.setMinHeight(720);
+        stage.setMaxHeight(1080);
+        stage.setMaxWidth(1920);
+        stage.setMinWidth(1280);
         stage.show();
     }
 

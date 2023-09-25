@@ -194,26 +194,4 @@ public class MainFrameController implements ICenterPane {
         workspacesPanelTransition.play();
     }
 
-//    private void taskPanelOnExitButtonPressed(MouseEvent event){
-//
-//        this.currentCenterPanel.refreshTasks();
-//        this.currentCenterPanel.getTasksContainer().getChildren().stream()
-//                .forEach(task -> {
-//                    task.setOnMouseClicked(this::taskCardPressed);
-//                });
-//
-////        this.centerPane.getChildren().clear();
-////        this.centerPane.getChildren().add(this.currentCenterPanel);
-////        this.currentCenterPanel.toFront();
-//
-//        PageNavigator.getInstance().pop();
-//    }
-
-//    private void taskCardPressed(MouseEvent event){
-//
-//        this.taskPanel.setTaskData(((TaskCard)event.getSource()).getTask());
-//
-//        PageNavigator.getInstance().push(taskPanel);
-//    }
-
 }
