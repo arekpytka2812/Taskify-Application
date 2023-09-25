@@ -1,0 +1,127 @@
+.task-panel{
+    -fx-padding: 20px;
+    -fx-background-color: #313866;
+    -fx-spacing: 20px;
+    -fx-alignment: center;
+}
+
+.inner-panel{
+    -fx-background-color: #504099;
+    -fx-spacing: 40px;
+    -fx-padding: 10px;
+    -fx-background-radius: 20px;
+
+}
+
+.side-panel{
+    -fx-background-color: #974EC3;
+    -fx-spacing: 20px;
+    -fx-border-color: #313866;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-alignment: center;
+    -fx-padding: 10px;
+}
+
+.data-container{
+    -fx-alignment: center;
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+    -fx-border-color: #313866;
+    -fx-border-radius: 20px;
+}
+
+.buttons-container{
+    -fx-alignment: center;
+    -fx-spacing: 10px;
+    -fx-pref-height: 100px;
+}
+
+.text-field{
+    -fx-border-color: #504099;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-text-alignment: center;
+    -fx-font-scale: 12px;
+    -fx-font-weight: bold;
+    -fx-pref-width: 250px;
+    -fx-max-width: 250px;
+}
+
+.text-field:focused{
+    -fx-background-color: rgba(80, 64, 153, 0.7);
+    -fx-text-fill: rgba(255,255,255,0.6);
+}
+
+
+
+.scroll-pane .corner{
+    -fx-background-color: rgba(0, 0, 0, 0);
+}
+
+.scroll-pane .scroll-bar:vertical {
+    -fx-background-color: rgba(0, 0, 0, 0);
+}
+
+
+.scroll-pane .scroll-bar:vertical .thumb{
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-border-color: #504099;
+    -fx-border-radius: 5px;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb:pressed{
+    -fx-background-color: #504099;
+    -fx-padding: 0px;
+}
+
+
+
+.button{
+    -fx-alignment: center;
+    -fx-background-radius: 10px;
+    -fx-pref-width: 100px;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: rgba(255,255,255,0.6);
+    -fx-border-radius: 10px;
+}
+
+.button:hover{
+    -fx-background-color: rgba(255,255,255,0.6);
+    -fx-text-fill: rgba(151, 78, 195, 1.0);
+}
+
+.label{
+    -fx-font-scale: 12px;
+    -fx-font-weight: bold;
+    -fx-border-insets: 10px;
+    -fx-pref-width: 90px;
+    -fx-alignment: center;
+}
+
+.date-picker .arrow-button{
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-alignment: center;
+    -fx-pref-width: 30px;
+    -fx-background-color: #313866;
+}
+
+.date-picker .arrow-button:focused{
+    -fx-background-color: rgba(80, 64, 153, 0.7);
+}
+
+/* Set the background of the text field to transparent */
+.date-picker .text-field {
+    -fx-background-color: rgba(0, 0, 0, 0);
+}
+
+.date-picker .text-field:focused{
+    -fx-background-color: rgba(80, 64, 153, 0.7);
+    -fx-text-fill: rgba(255,255,255,0.6);
+}
+
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+

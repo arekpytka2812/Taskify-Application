@@ -8,6 +8,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class UpdateInfoCard extends VBox {
 
@@ -30,10 +33,12 @@ public class UpdateInfoCard extends VBox {
 
     }
 
-    public UpdateInfoCard(String updateInfoDate, String description){
+    public UpdateInfoCard(LocalDateTime updateInfoDate, String description){
         this();
 
-        this.updateInfoDateLabel.setText(updateInfoDate);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+        this.updateInfoDateLabel.setText(updateInfoDate.format(formatter));
         this.description.setText(description);
     }
 

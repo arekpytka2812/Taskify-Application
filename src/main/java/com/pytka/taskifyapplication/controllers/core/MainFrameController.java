@@ -128,10 +128,10 @@ public class MainFrameController implements ICenterPane {
         setMargin(workspacesPanel, new Insets(0, workspacesPanel.translateXProperty().doubleValue(), 0, 0));
 
         userPanel.setPrefWidth(400);
-//        userPanel.setTranslateX(350);
+        userPanel.setTranslateX(350);
         userPanel.setBottomBoxAlignment(SidePanel.PanelSide.RIGHT);
 
-        setMargin(centerPane, new Insets(0,SpringMainApplication.MAX_SCREEN_WIDTH - userPanel.translateXProperty().doubleValue(),0,0));
+        setMargin(centerPane, new Insets(0,0,0,0));
 
         workspacesPanelTransition =
                 new TranslateTransition(Duration.millis(200), workspacesPanel);
@@ -149,7 +149,13 @@ public class MainFrameController implements ICenterPane {
         });
 
         userPanel.translateXProperty().addListener(e -> {
-            setMargin(centerPane, new Insets(0,SpringMainApplication.MAX_SCREEN_WIDTH - userPanel.translateXProperty().doubleValue(),0,0));
+            setMargin(centerPane, new Insets(
+                    0,
+                    userPanel.translateXProperty().doubleValue(),
+                    0,
+                    0
+            ));
+            setMargin(centerPane, new Insets(0,0,0,0));
 
         });
     }

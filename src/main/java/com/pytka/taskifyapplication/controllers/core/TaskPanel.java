@@ -169,7 +169,7 @@ public class TaskPanel extends VBox implements ICenterPane {
 
         for(UpdateInfoDTO updateInfoDTO : this.task.getTaskUpdates()){
             this.updatesContainer.getChildren().add(
-                    new UpdateInfoCard(updateInfoDTO.getUpdateInfoDate().toString(), updateInfoDTO.getDescription())
+                    new UpdateInfoCard(updateInfoDTO.getUpdateInfoDate(), updateInfoDTO.getDescription())
             );
         }
 

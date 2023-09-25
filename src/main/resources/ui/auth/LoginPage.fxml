@@ -15,7 +15,7 @@
               <HBox prefHeight="100.0" prefWidth="200.0" styleClass="data-field">
                   <children>
                       <Label text="Email: " />
-                      <TextField fx:id="emailField" focusTraversable="true" styleClass="transparent" />
+                      <TextField fx:id="emailField" styleClass="transparent" />
                   </children>
               </HBox>
               <HBox prefHeight="100.0" prefWidth="200.0" styleClass="data-field">
