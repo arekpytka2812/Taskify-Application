@@ -33,4 +33,12 @@ public class WorkspaceServiceImpl implements WorkspaceService {
         return this.requestService.getListRequest(WorkspaceLiteDTO.class, endpointURL);
     }
 
+    @Override
+    public void addWorkspace(WorkspaceLiteDTO workspaceDTO){
+
+        String endpointURL = "/workspace/add/" + SpringMainApplication.USER_ID;
+
+        this.requestService.postRequest(Boolean.class, workspaceDTO, endpointURL);
+    }
+
 }

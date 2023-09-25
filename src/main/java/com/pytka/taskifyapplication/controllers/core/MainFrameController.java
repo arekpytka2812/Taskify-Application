@@ -2,30 +2,21 @@ package com.pytka.taskifyapplication.controllers.core;
 
 
 import com.pytka.taskifyapplication.SpringMainApplication;
+import com.pytka.taskifyapplication.controllers.ICenterPane;
 import com.pytka.taskifyapplication.controllers.components.SidePanel;
-import com.pytka.taskifyapplication.controllers.components.TaskCard;
 import com.pytka.taskifyapplication.controllers.components.WorkspaceCard;
-import com.pytka.taskifyapplication.models.TaskDTO;
 import com.pytka.taskifyapplication.models.WorkspaceDTO;
-import com.pytka.taskifyapplication.models.WorkspaceLiteDTO;
 import com.pytka.taskifyapplication.services.TaskService;
 import com.pytka.taskifyapplication.services.WorkspaceService;
 import com.pytka.taskifyapplication.utlis.PageNavigator;
-import com.pytka.taskifyapplication.utlis.ParentLoader;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
-import javafx.scene.Parent;
-import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Paint;
 import javafx.util.Duration;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -37,7 +28,7 @@ import static javafx.scene.layout.BorderPane.setMargin;
 
 @Component
 @RequiredArgsConstructor
-public class MainFrameController {
+public class MainFrameController implements ICenterPane {
 
     @FXML
     private BorderPane mainPane;
@@ -71,7 +62,15 @@ public class MainFrameController {
     @FXML
     public void initialize() {
 
+        refresh();
+    }
+
+    @Override
+    public void refresh(){
+
         this.setupSidePanels();
+
+        this.workspacesPanel.getMainBox().getChildren().clear();
         this.centerPanelsMap = new HashMap<>();
 
         List<WorkspaceDTO> workspaceDTOs = this.workspaceService.getWorkspacesByUserID();
@@ -105,8 +104,9 @@ public class MainFrameController {
         WorkspaceCard addWorkspace = new WorkspaceCard();
         addWorkspace.getWorkspaceName().setText(" + add new workspace!");
         addWorkspace.setOnMouseClicked(event -> {
-            // TODO: add workapce asynchowsult
+            PageNavigator.getInstance().push(new WorkspacePanel(workspaceService, this));
         });
+
 
         this.workspacesPanel.getMainBox().getChildren().add(addWorkspace);
 
@@ -114,8 +114,8 @@ public class MainFrameController {
 
         PageNavigator.getInstance().setRoot(centerPane);
         PageNavigator.getInstance().push(currentCenterPanel);
-
     }
+
 
     private void setupSidePanels(){
 
