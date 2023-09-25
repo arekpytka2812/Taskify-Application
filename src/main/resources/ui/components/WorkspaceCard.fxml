@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="190.0" stylesheets="@../../styles/components/workspace-card.css" type="Pane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="workspaceName" alignment="CENTER" layoutX="5.0" layoutY="7.0" prefHeight="38.0" prefWidth="175.0" text="Family">
+         <font>
+            <Font name="Georgia" size="18.0" />
+         </font>
+      </Label>
+   </children>
+   <styleClass>
+      <String fx:value="shadow" />
+      <String fx:value="workspace-card" />
+   </styleClass>
+</fx:root>

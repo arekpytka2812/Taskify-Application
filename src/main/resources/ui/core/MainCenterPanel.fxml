@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../styles/core/main-center-panel.css" type="VBox" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox fx:id="topBox" prefHeight="42.0" prefWidth="600.0" styleClass="top-bar">
+         <children>
+            <Button fx:id="addTaskButton" mnemonicParsing="false" styleClass="add-task-button" text="Add Task" />
+            <ComboBox fx:id="soritngCB" prefWidth="150.0" promptText="Sort" styleClass="sorting-cb" />
+         </children>
+      </HBox>
+      <FlowPane fx:id="tasksContainer" prefHeight="367.0" prefWidth="600.0" styleClass="tasks-container" />
+
+   </children>
+
+   <styleClass>
+      <String fx:value="center-panel" />
+      <String fx:value="shadow" />
+   </styleClass>
+</fx:root>

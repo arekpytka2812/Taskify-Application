@@ -1,16 +1,13 @@
-package com.pytka.taskifyapplication.controllers;
+package com.pytka.taskifyapplication.controllers.auth;
 
 import com.pytka.taskifyapplication.SpringMainApplication;
-import com.pytka.taskifyapplication.TaskifyApplication;
 import com.pytka.taskifyapplication.auth.model.AuthRequest;
 import com.pytka.taskifyapplication.auth.model.AuthResponse;
 import com.pytka.taskifyapplication.auth.service.AuthService;
-import com.pytka.taskifyapplication.utlis.ParentLoader;
 import com.pytka.taskifyapplication.utlis.StageChanger;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import lombok.RequiredArgsConstructor;
@@ -42,6 +39,12 @@ public class LoginPageController {
     private final AuthService authService;
 
     private final ApplicationContext context;
+
+    @FXML
+    private void initialize(){
+        Platform.runLater(() -> emailField.requestFocus());
+    }
+
 
     public void registerButtonPressed(ActionEvent event){
         Stage stage = StageChanger.changeStage(
@@ -82,7 +85,7 @@ public class LoginPageController {
 
         Stage stage = StageChanger.changeStage(
                 event,
-                "/ui/ui.fxml",
+                "/ui/core/MainFrame.fxml",
                 context
         );
 

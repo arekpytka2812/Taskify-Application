@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="532.0" styleClass="panel" stylesheets="@../../styles/components/updateinfo-panel.css" type="VBox" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="taskNameLabel" alignment="CENTER" prefHeight="46.0" prefWidth="267.0" text="Label">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="updateArea" prefHeight="143.0" prefWidth="532.0" stylesheets="@../../styles/components/updateinfo-panel.css" />
+      <HBox alignment="CENTER" prefHeight="67.0" prefWidth="532.0">
+         <children>
+            <Button fx:id="saveButton" mnemonicParsing="false" styleClass="transparent" text="Button" />
+         </children>
+      </HBox>
+   </children>
+</fx:root>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.pytka.taskifyapplication.controllers.components.IconButton?>
+
+<fx:root prefHeight="787.0" prefWidth="1199.0" styleClass="task-panel" stylesheets="@../../styles/core/task-panel.css" type="VBox" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="40.0" prefWidth="825.0" styleClass="inner-panel">
+         <children>
+            <IconButton fx:id="exitButton"/>
+         </children>
+      </Pane>
+      <HBox fx:id="mainBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="683.0" prefWidth="1155.0" styleClass="inner-panel">
+         <children>
+            <VBox fx:id="leftBox" alignment="CENTER" prefHeight="663.0" prefWidth="738.0" styleClass="side-panel">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="83.0" prefWidth="604.0" styleClass="data-container">
+                     <children>
+                        <Label text="Label" />
+                        <TextField fx:id="taskNameField" editable="false" prefHeight="25.0" prefWidth="396.0" styleClass="transparent" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="81.0" prefWidth="604.0" styleClass="data-container">
+                     <children>
+                        <Label text="Label" />
+                        <TextField fx:id="descriptionField" editable="false" prefHeight="27.0" prefWidth="264.0" styleClass="transparent" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="59.0" prefWidth="604.0" styleClass="data-container">
+                     <children>
+                        <Label text="Label" />
+                        <CheckBox fx:id="notificationsOn" mnemonicParsing="false" />
+                     </children>
+                  </HBox>
+                  <VBox prefHeight="206.0" prefWidth="604.0" styleClass="data-container">
+                     <children>
+                        <Label text="Label" />
+                        <ScrollPane fx:id="updatesPane" prefHeight="240.0" prefWidth="434.0" styleClass="transparent">
+                          <content>
+                              <VBox fx:id="updatesContainer" prefHeight="224.0" prefWidth="679.0" styleClass="updates-box" />
+                          </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="data-container">
+                     <children>
+                        <Button fx:id="addUpdateInfoButton" mnemonicParsing="false" styleClass="transparent" text="Add update" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox fx:id="rightBox" prefHeight="663.0" prefWidth="317.0" styleClass="side-panel">
+               <children>
+                  <VBox prefHeight="119.0" prefWidth="212.0" styleClass="data-container">
+                     <children>
+                        <Label text="Label" />
+                        <TextField fx:id="taskTypeField" disable="true" editable="false" styleClass="transparent" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="100.0" prefWidth="212.0" styleClass="data-container">
+                     <children>
+                        <Label text="Label" />
+                        <TextField fx:id="priorityField" editable="false" prefHeight="27.0" prefWidth="255.0" styleClass="transparent" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="134.0" prefWidth="212.0" styleClass="data-container">
+                     <children>
+                        <Label text="Label" />
+                        <DatePicker fx:id="createDatePicker" editable="false" styleClass="transparent" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="128.0" prefWidth="212.0" styleClass="data-container">
+                     <children>
+                        <Label text="Label" />
+                        <DatePicker fx:id="expDatePicker" disable="true" editable="false" styleClass="transparent" />
+                     </children>
+                  </VBox>
+                  <HBox fx:id="buttonsBox" alignment="CENTER" prefHeight="62.0" prefWidth="214.0" styleClass="buttons-container">
+                     <children>
+                        <Button fx:id="updateTaskButton" mnemonicParsing="false" styleClass="transparent" text="Update task" />
+                        <Button fx:id="deleteTaskButton" mnemonicParsing="false" styleClass="transparent" text="Delete task" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</fx:root>

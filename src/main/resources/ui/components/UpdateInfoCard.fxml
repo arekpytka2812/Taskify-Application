@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root alignment="BOTTOM_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="408.0" styleClass="card" stylesheets="@../../styles/components/updateinfo-card.css" type="VBox" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="updateInfoDateLabel" prefHeight="35.0" text="" />
+      <TextField fx:id="description" editable="false" prefHeight="59.0" prefWidth="408.0" styleClass="transparent" />
+   </children>
+</fx:root>

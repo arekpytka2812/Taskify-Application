@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContextInitializer;
-import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 
@@ -37,9 +36,13 @@ public class TaskifyApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        Parent parent = ParentLoader.loadParent(TaskifyApplication.class, "/ui/auth/RegisterPage.fxml", context);
-        stage.setScene(new Scene(parent));
+        Parent parent = ParentLoader.loadParent(TaskifyApplication.class, "/ui/auth/LoginPage.fxml", context);
+        stage.setScene(new Scene(parent, 1280, 720));
         stage.setTitle("TaskifyApp");
+        stage.setMinHeight(720);
+        stage.setMaxHeight(1080);
+        stage.setMaxWidth(1920);
+        stage.setMinWidth(1280);
         stage.show();
     }
 
