@@ -45,7 +45,7 @@ public class TaskPanel extends VBox implements ICenterPane {
     private Separator nameDescSeparator;
 
     @FXML
-    private TextField descriptionField;
+    private TextArea descriptionField;
 
     @FXML
     private Separator descNotSeparator;

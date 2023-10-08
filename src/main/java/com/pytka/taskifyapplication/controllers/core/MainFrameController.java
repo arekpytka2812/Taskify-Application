@@ -128,7 +128,7 @@ public class MainFrameController implements ICenterPane {
         setMargin(workspacesPanel, new Insets(0, workspacesPanel.translateXProperty().doubleValue(), 0, 0));
 
         userPanel.setPrefWidth(400);
-        userPanel.setTranslateX(350);
+
         userPanel.setBottomBoxAlignment(SidePanel.PanelSide.RIGHT);
 
         setMargin(centerPane, new Insets(0,0,0,0));
@@ -148,27 +148,27 @@ public class MainFrameController implements ICenterPane {
             setMargin(workspacesPanel, new Insets(0, workspacesPanel.translateXProperty().doubleValue(), 0, 0));
         });
 
-        userPanel.translateXProperty().addListener(e -> {
-            setMargin(centerPane, new Insets(
-                    0,
-                    userPanel.translateXProperty().doubleValue(),
-                    0,
-                    0
-            ));
-            setMargin(centerPane, new Insets(0,0,0,0));
-
-        });
+//        userPanel.translateXProperty().addListener(e -> {
+//            setMargin(centerPane, new Insets(
+//                    0,
+//                    userPanel.translateXProperty().doubleValue(),
+//                    0,
+//                    0
+//            ));
+////            setMargin(centerPane, new Insets(0,0,0,0));
+//
+//        });
     }
 
 
     private void translateUserPanel(MouseEvent event) {
         if(userPanelShown){
-            userPanelTransition.setFromX(SpringMainApplication.MAX_SCREEN_WIDTH - 400);
-            userPanelTransition.setToX(SpringMainApplication.MAX_SCREEN_WIDTH - 50);
+            userPanelTransition.setFromX(1520);
+            userPanelTransition.setToX(1870);
         }
         else{
-            userPanelTransition.setFromX(SpringMainApplication.MAX_SCREEN_WIDTH - 50);
-            userPanelTransition.setToX(SpringMainApplication.MAX_SCREEN_WIDTH - 400);
+            userPanelTransition.setFromX(1870);
+            userPanelTransition.setToX(1520);
         }
 
         userPanelShown = !userPanelShown;

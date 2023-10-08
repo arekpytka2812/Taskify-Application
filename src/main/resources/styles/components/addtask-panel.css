@@ -1,0 +1,108 @@
+.main-panel{
+    -fx-padding: 20px;
+    -fx-background-color: #313866;
+    -fx-spacing: 20px;
+    -fx-alignment: center;
+    -fx-min-height: 600px;
+    -fx-min-width: 1000px;
+}
+
+.content-panel{
+    -fx-alignment: center-left;
+    -fx-border-radius: 20px;
+    -fx-background-color: #504099;
+    -fx-background-radius: 20px;
+    -fx-padding: 10px 20px 10px 20px ;
+    -fx-spacing: 100px;
+}
+
+.data-panel{
+    -fx-alignment: center;
+    -fx-border-radius: 20px;
+    -fx-background-color: #504099;
+    -fx-background-radius: 20px;
+    -fx-padding: 10px 20px 10px 20px ;
+}
+
+.data-field{
+    -fx-background-color: #974EC3;
+    -fx-alignment: center;
+    -fx-background-radius: 30px;
+    -fx-padding: 20px;
+    -fx-border-insets: 5;
+    -fx-background-insets: 5;
+    -fx-spacing: 10px;
+}
+
+.button{
+    -fx-alignment: center;
+    -fx-background-radius: 10px;
+    -fx-pref-width: 100px;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: rgba(255,255,255,0.6);
+    -fx-border-radius: 10px;
+    -fx-spacing: 10px;
+}
+
+.button:hover{
+    -fx-background-color: rgba(255,255,255,0.6);
+    -fx-text-fill: #504099;
+}
+
+.button:focused{
+    -fx-background-color: rgba(255,255,255,0.6);
+    -fx-text-fill: #504099;
+}
+
+.text-field{
+    -fx-border-color: #504099;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-text-alignment: center;
+    -fx-font-scale: 12px;
+    -fx-font-weight: bold;
+    -fx-pref-width: 300px;
+}
+
+.text-field:focused{
+    -fx-background-color: #504099;
+    -fx-text-fill: rgba(255,255,255,0.6);
+}
+
+.text-area{
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-border-color: #504099;
+    -fx-padding: 10px;
+}
+
+.text-area:focused{
+    -fx-control-inner-background:#504099;
+    -fx-text-fill: rgba(255,255,255,0.6);
+}
+
+.text-area .scroll-pane {
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-control-inner-background: #974EC3;
+}
+
+.text-area .content:focused{
+    -fx-background-color: #504099;
+    -fx-text-fill: rgba(255,255,255,0.6);
+}
+
+.label{
+    -fx-alignment: center;
+    -fx-pref-width: 100px;
+    -fx-font-weight: bold;
+}
+
+.title-label{
+
+    -fx-font-size: 24px;
+    -fx-pref-width: 550px;
+}
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
