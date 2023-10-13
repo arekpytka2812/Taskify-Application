@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="1247.0" styleClass="register-page" stylesheets="@../../styles/auth/register-page.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pytka.taskifyapplication.controllers.auth.RegisterPageController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="1247.0" styleClass="register-page" stylesheets="@../../styles/auth/register-page.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pytka.taskifyapplication.auth.controller.RegisterPageController">
     <children>
       <HBox alignment="CENTER_LEFT" prefHeight="53.0" prefWidth="560.0">
          <children>
