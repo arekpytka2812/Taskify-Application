@@ -15,14 +15,17 @@ public class StatsDTO {
     @JsonProperty("workspacesCreated")
     private Long workspacesCreated;
 
+    @JsonProperty("workspacesDeleted")
+    private Long workspacesDeleted;
+
     @JsonProperty("tasksCreated")
     private Long tasksCreated;
 
-    @JsonProperty("updateInfosCreated")
-    private Long updateInfosCreated;
-
     @JsonProperty("tasksDeleted")
     private Long tasksDeleted;
+
+    @JsonProperty("updateInfosCreated")
+    private Long updateInfosCreated;
 
     @JsonProperty("finishedOnTimeTasks")
     private Long finishedOnTimeTasks;

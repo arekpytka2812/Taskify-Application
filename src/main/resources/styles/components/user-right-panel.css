@@ -1,0 +1,31 @@
+.top-container{
+    -fx-alignment: center;
+    -fx-spacing: 300px;
+}
+
+.stats-container{
+
+}
+
+.bottom-container{
+
+}
+
+.label{
+    -fx-alignment: CENTER;
+    -fx-pref-height: 50;
+}
+
+.description-label{
+    -fx-pref-width: 280;
+}
+
+.value-label{
+    -fx-pref-width: 120;
+}
+
+.button{
+    -fx-pref-width: 50px;
+    -fx-pref-height: 50px;
+    -fx-max-width: 50px;
+}

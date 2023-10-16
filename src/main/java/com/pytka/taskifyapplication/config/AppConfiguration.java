@@ -11,7 +11,11 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.messaging.converter.MappingJackson2MessageConverter;
 import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.socket.client.WebSocketClient;
+import org.springframework.web.socket.client.standard.StandardWebSocketClient;
+import org.springframework.web.socket.messaging.WebSocketStompClient;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -43,7 +47,14 @@ public class AppConfiguration {
         return new RequestServiceImpl(webClient(), objectMapper());
     }
 
+    @Bean
+    public static WebSocketStompClient webSocketStompClient(){
+        WebSocketClient client = new StandardWebSocketClient();
+        WebSocketStompClient stomp = new WebSocketStompClient(client);
+        stomp.setMessageConverter(new MappingJackson2MessageConverter());
 
+        return stomp;
+    }
 
 
 }

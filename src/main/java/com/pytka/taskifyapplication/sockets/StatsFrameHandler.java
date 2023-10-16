@@ -1,6 +1,8 @@
 package com.pytka.taskifyapplication.sockets;
 
+import com.pytka.taskifyapplication.core.controllers.components.UserRightPanel;
 import com.pytka.taskifyapplication.core.models.StatsDTO;
+import javafx.application.Platform;
 import org.springframework.messaging.simp.stomp.StompFrameHandler;
 import org.springframework.messaging.simp.stomp.StompHeaders;
 
@@ -8,7 +10,7 @@ import java.lang.reflect.Type;
 
 public class StatsFrameHandler implements StompFrameHandler {
 
-    private StatsDTO statsDTO;
+    private UserRightPanel panel;
 
     @Override
     public Type getPayloadType(StompHeaders stompHeaders) {
@@ -17,12 +19,17 @@ public class StatsFrameHandler implements StompFrameHandler {
 
     @Override
     public void handleFrame(StompHeaders stompHeaders, Object o) {
-        this.statsDTO = (StatsDTO) o;
 
-        System.out.println("\n\n[DEBUG] Received stats:\n" + statsDTO.toString() + "\n\n");
+        Platform.runLater(() -> {
+            this.panel.updateStats((StatsDTO) o);
+        });
+
+
+
+        System.out.println("\n\n[DEBUG] Received stats:\n" + ((StatsDTO) o).toString() + "\n\n");
     }
 
-    public StatsDTO getStats(){
-        return this.statsDTO;
+    public void setPanel(UserRightPanel panel){
+        this.panel = panel;
     }
 }

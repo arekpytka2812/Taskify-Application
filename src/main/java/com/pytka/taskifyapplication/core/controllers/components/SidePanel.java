@@ -58,7 +58,7 @@ public class SidePanel extends VBox {
         }
 
 
-        mainBox.setBackground(new Background(new BackgroundFill(Paint.valueOf("#0C8CE9"), null, null)));
+//        mainBox.setBackground(new Background(new BackgroundFill(Paint.valueOf("#0C8CE9"), null, null)));
 
     }
 
