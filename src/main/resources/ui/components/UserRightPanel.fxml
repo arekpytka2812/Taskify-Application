@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import com.pytka.taskifyapplication.core.controllers.components.NotificationsPanel?>
+<fx:root type="VBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="615.0" prefWidth="400.0" stylesheets="@../../styles/components/user-right-panel.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="55.0" prefWidth="400.0" styleClass="top-container">
+         <children>
+            <NotificationsPanel fx:id="notificationsPanel" />
+            <Button fx:id="settingsButton" mnemonicParsing="false" />
+         </children>
+      </HBox>
+      <VBox prefHeight="507.0" prefWidth="400.0" styleClass="stats-container">
+         <children>
+            <Label fx:id="usernameLabel" alignment="CENTER" prefHeight="51.0" prefWidth="392.0" text="" />
+            <HBox prefHeight="48.0" prefWidth="400.0">
+               <children>
+                  <Label styleClass="description-label" text="Workspaces created:" />
+                  <Label fx:id="workspacesCreatedLabel" styleClass="value-label" text="" />
+               </children>
+            </HBox>
+            <HBox prefHeight="43.0" prefWidth="400.0">
+               <children>
+                  <Label styleClass="description-label" text="Workspaces deleted:" />
+                  <Label fx:id="workspacesDeletedLabel" styleClass="value-label" text="" />
+               </children>
+            </HBox>
+            <HBox prefHeight="53.0" prefWidth="400.0">
+               <children>
+                  <Label styleClass="description-label" text="Tasks created:" />
+                  <Label fx:id="taskCreatedLabel" styleClass="value-label" text="" />
+               </children>
+            </HBox>
+            <HBox prefHeight="62.0" prefWidth="400.0">
+               <children>
+                  <Label styleClass="description-label" text="Tasks deleted:" />
+                  <Label fx:id="taskDeletedLabel" styleClass="value-label" text="" />
+               </children>
+            </HBox>
+            <HBox prefHeight="48.0" prefWidth="400.0">
+               <children>
+                  <Label styleClass="description-label" text="Created update infos:" />
+                  <Label fx:id="updateInfosCreatedLabel" styleClass="value-label" text="" />
+               </children>
+            </HBox>
+            <HBox prefHeight="65.0" prefWidth="400.0">
+               <children>
+                  <Label styleClass="description-label" text="Tasks finished on time:" />
+                  <Label fx:id="finishedTasksOnTimeLabel" styleClass="value-label" text="" />
+               </children>
+            </HBox>
+            <HBox prefHeight="65.0" prefWidth="400.0">
+               <children>
+                  <Label styleClass="description-label" text="Delayed finished tasks:" />
+                  <Label fx:id="finishedTasksDelayedLabel" styleClass="value-label" text="" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</fx:root>
