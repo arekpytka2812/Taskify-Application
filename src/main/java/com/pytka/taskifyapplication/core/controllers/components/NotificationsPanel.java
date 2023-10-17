@@ -38,14 +38,7 @@ public class NotificationsPanel extends ScrollPane {
 
     public void updateNotifications(List<TaskNotificationDTO> notifications){
 
-        this.notificationsBox.getChildren().clear();
 
-        for(TaskNotificationDTO notification : notifications){
-
-            Label label = new Label(notification.getMessage());
-
-            notificationsBox.getChildren().add(label);
-        }
 
     }
 

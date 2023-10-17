@@ -5,6 +5,7 @@ import com.pytka.taskifyapplication.core.controllers.ICenterPane;
 import com.pytka.taskifyapplication.core.controllers.components.SidePanel;
 import com.pytka.taskifyapplication.core.controllers.components.UserRightPanel;
 import com.pytka.taskifyapplication.core.controllers.components.WorkspaceCard;
+import com.pytka.taskifyapplication.core.controllers.components.WorkspaceLeftPanel;
 import com.pytka.taskifyapplication.core.models.WorkspaceDTO;
 import com.pytka.taskifyapplication.core.service.TaskService;
 import com.pytka.taskifyapplication.core.service.WorkspaceService;
@@ -34,7 +35,7 @@ public class MainFrameController implements ICenterPane {
     private BorderPane mainPane;
 
     @FXML
-    private SidePanel workspacesPanel;
+    private WorkspaceLeftPanel workspacesPanel;
 
     @FXML
     private StackPane centerPane;
@@ -63,20 +64,20 @@ public class MainFrameController implements ICenterPane {
 
         this.setupSidePanels();
 
-        this.workspacesPanel.getMainBox().getChildren().clear();
+        this.workspacesPanel.clear();
         this.centerPanelsMap = new HashMap<>();
 
         List<WorkspaceDTO> workspaceDTOs = this.workspaceService.getWorkspacesByUserID();
 
         for(WorkspaceDTO workspace : workspaceDTOs){
 
-            WorkspaceCard workspaceCard = new WorkspaceCard();
-            workspaceCard.getWorkspaceName().setText(workspace.getName());
+            WorkspaceCard workspaceCard = new WorkspaceCard(workspace.getName());
 
-            MainCenterPanel mainCenterPanel = new MainCenterPanel();
-            mainCenterPanel.setWorkspaceID(workspace.getID());
-            mainCenterPanel.setTaskService(taskService);
-            mainCenterPanel.setTasks(workspace.getTasks());
+            MainCenterPanel mainCenterPanel = new MainCenterPanel(
+                    taskService,
+                    workspace.getID(),
+                    workspace.getTasks()
+            );
 
             this.centerPanelsMap.put(workspaceCard, mainCenterPanel);
 
@@ -90,18 +91,15 @@ public class MainFrameController implements ICenterPane {
 
             });
 
-            this.workspacesPanel.getMainBox().getChildren().add(workspaceCard);
+
+            this.workspacesPanel.addWorkspace(workspaceCard);
             this.currentCenterPanel = centerPanelsMap.get(workspaceCard);
         }
 
-        WorkspaceCard addWorkspace = new WorkspaceCard();
-        addWorkspace.getWorkspaceName().setText(" + add new workspace!");
-        addWorkspace.setOnMouseClicked(event -> {
+
+        this.workspacesPanel.getAddWorkspaceButton().setOnMouseClicked(event -> {
             PageNavigator.getInstance().push(new WorkspacePanel(workspaceService, this));
         });
-
-
-        this.workspacesPanel.getMainBox().getChildren().add(addWorkspace);
 
         centerPane.getChildren().addAll();
 
@@ -112,17 +110,7 @@ public class MainFrameController implements ICenterPane {
 
     private void setupSidePanels(){
 
-        workspacesPanel.repaint("/icons/user.png");
-
-        workspacesPanel.setPrefWidth(400);
-        workspacesPanel.setTranslateX(0);
-        workspacesPanel.setBottomBoxAlignment(SidePanel.PanelSide.LEFT);
-
-        userPanel.setPrefWidth(400);
-
-
         setMargin(centerPane, new Insets(0,0,0,0));
-
 
     }
 

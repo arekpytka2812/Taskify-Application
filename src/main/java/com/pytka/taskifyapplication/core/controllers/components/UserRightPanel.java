@@ -22,14 +22,14 @@ import java.util.List;
 
 @Setter
 @Getter
-
 public class UserRightPanel extends VBox {
 
-    @FXML
-    private NotificationsPanel notificationsPanel;
 
     @FXML
     private Button settingsButton;
+
+    @FXML
+    private VBox notificationsBox;
 
     @FXML
     private Label usernameLabel;
@@ -99,9 +99,20 @@ public class UserRightPanel extends VBox {
 
     public void addNotification(TaskNotificationDTO notification){
         this.notificationList.add(notification);
-        this.notificationsPanel.updateNotifications(notificationList);
+        updateNotifications();
     }
 
+    private void updateNotifications(){
+
+        this.notificationsBox.getChildren().clear();
+
+        for(TaskNotificationDTO notification : notificationList){
+
+            Label label = new Label(notification.getMessage());
+
+            notificationsBox.getChildren().add(label);
+        }
+    }
 
     public void socketsSetup(){
 
