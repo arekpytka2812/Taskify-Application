@@ -61,6 +61,19 @@ public class MainCenterPanel extends VBox implements ICenterPane {
         this.addTaskButton.setOnMouseClicked(this::addTaskButtonPressed);
     }
 
+    public MainCenterPanel(
+            TaskService taskService,
+            Long workspaceID,
+            List<TaskDTO> tasks
+    ){
+        this();
+
+        this.taskService = taskService;
+        this.workspaceID = workspaceID;
+
+        setTasks(tasks);
+    }
+
     public void setTasks(List<TaskDTO> tasks){
 
         if(this.tasksContainer.getChildren() != null){

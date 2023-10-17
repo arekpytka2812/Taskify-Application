@@ -59,23 +59,21 @@
     -fx-background-color: rgba(0, 0, 0, 0);
 }
 
-.scroll-pane .scroll-bar:vertical {
-    -fx-background-color: rgba(0, 0, 0, 0);
+
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
 }
 
-
-.scroll-pane .scroll-bar:vertical .thumb{
-    -fx-background-color: rgba(0, 0, 0, 0);
+.text-area{
+    -fx-background-color: transparent;
     -fx-border-color: #504099;
-    -fx-border-radius: 5px;
+    -fx-border-radius: 10px;
 }
 
-.scroll-pane .scroll-bar:vertical .thumb:pressed{
-    -fx-background-color: #504099;
-    -fx-padding: 0px;
+.text-area .scroll-pane .content{
+    -fx-background-color: transparent;
 }
-
-
 
 .button{
     -fx-alignment: center;
@@ -119,6 +117,16 @@
 .date-picker .text-field:focused{
     -fx-background-color: rgba(80, 64, 153, 0.7);
     -fx-text-fill: rgba(255,255,255,0.6);
+}
+
+.check-box .box{
+    -fx-border-radius: 5px;
+    -fx-border-color: #313866;
+    -fx-background-color: transparent;
+}
+
+.check-box .mark:selected{
+    -fx-background-color: #313866;
 }
 
 .transparent{

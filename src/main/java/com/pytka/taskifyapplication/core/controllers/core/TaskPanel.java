@@ -30,9 +30,6 @@ import java.io.IOException;
 public class TaskPanel extends VBox implements ICenterPane {
 
     @FXML
-    private IconButton exitButton;
-
-    @FXML
     private HBox mainBox;
 
     @FXML
@@ -127,15 +124,11 @@ public class TaskPanel extends VBox implements ICenterPane {
             throw new RuntimeException(e);
         }
 
-        this.exitButton.setImageAndBackground("/icons/back.png", null);
 
         this.addUpdateInfoButton.setOnAction(this::onAddUpdateInfoButtonPressed);
         this.updateTaskButton.setOnAction(this::onUpdateTaskButtonPressed);
         this.deleteTaskButton.setOnMouseClicked(this::onDeleteTaskButtonPressed);
 
-        this.exitButton.setOnClicked(e -> {
-            PageNavigator.getInstance().pop();
-        });
     }
 
     public TaskPanel(TaskDTO task){
@@ -204,7 +197,6 @@ public class TaskPanel extends VBox implements ICenterPane {
 
         this.taskService.deleteTask(task.getID());
 
-        exitButton.getOnMouseClicked().handle(event);
     }
 
     @Override

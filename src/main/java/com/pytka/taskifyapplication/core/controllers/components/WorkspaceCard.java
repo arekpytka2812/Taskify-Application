@@ -26,4 +26,11 @@ public class WorkspaceCard extends Pane {
             throw new RuntimeException(e);
         }
     }
+
+    public WorkspaceCard(String name){
+
+        this();
+
+        workspaceName.setText(name);
+    }
 }
