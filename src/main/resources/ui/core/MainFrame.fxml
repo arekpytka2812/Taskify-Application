@@ -6,7 +6,7 @@
 <?import com.pytka.taskifyapplication.core.controllers.components.SidePanel?>
 <?import com.pytka.taskifyapplication.core.controllers.components.UserRightPanel?>
 <?import com.pytka.taskifyapplication.core.controllers.components.WorkspaceLeftPanel?>
-<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.pytka.taskifyapplication.core.controllers.core.MainFrameController"
             stylesheets="@../../styles/core/main-frame.css"
 >
