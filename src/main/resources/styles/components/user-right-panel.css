@@ -37,6 +37,7 @@
 
 .value-label{
     -fx-pref-width: 80;
+    -fx-alignment: center;
 }
 
 .button{
@@ -62,4 +63,10 @@
 .username-label{
     -fx-alignment: center;
 
+}
+
+.section-label{
+    -fx-pref-width: 100px;
+    -fx-pref-height: 30px;
+    -fx-padding: 10 5 5 10;
 }
