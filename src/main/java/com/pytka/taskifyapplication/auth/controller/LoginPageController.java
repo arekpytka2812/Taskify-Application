@@ -79,6 +79,7 @@ public class LoginPageController {
 
         SpringMainApplication.AUTH_TOKEN = response.getToken();
         SpringMainApplication.USER_ID = response.getID();
+        SpringMainApplication.USER_EMAIL = emailField.getText();
 
         // TODO: handle remember me checkBox
 

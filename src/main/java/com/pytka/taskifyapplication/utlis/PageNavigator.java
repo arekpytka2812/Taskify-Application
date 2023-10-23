@@ -36,6 +36,9 @@ public class PageNavigator {
         this.root = root;
     }
 
+    public ICenterPane top(){
+        return this.pagesStack.peek();
+    }
 
     public void push(ICenterPane newParent){
 

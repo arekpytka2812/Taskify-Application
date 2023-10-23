@@ -1,22 +1,24 @@
 package com.pytka.taskifyapplication.core.controllers.core;
 
 
+import com.pytka.taskifyapplication.auth.service.AuthService;
 import com.pytka.taskifyapplication.core.controllers.ICenterPane;
-import com.pytka.taskifyapplication.core.controllers.components.SidePanel;
+import com.pytka.taskifyapplication.core.controllers.components.SettingsPanel;
 import com.pytka.taskifyapplication.core.controllers.components.UserRightPanel;
 import com.pytka.taskifyapplication.core.controllers.components.WorkspaceCard;
 import com.pytka.taskifyapplication.core.controllers.components.WorkspaceLeftPanel;
+import com.pytka.taskifyapplication.core.models.StatsDTO;
+import com.pytka.taskifyapplication.core.models.UserSettingsDTO;
 import com.pytka.taskifyapplication.core.models.WorkspaceDTO;
+import com.pytka.taskifyapplication.core.service.StatsService;
 import com.pytka.taskifyapplication.core.service.TaskService;
+import com.pytka.taskifyapplication.core.service.UserSettingsService;
 import com.pytka.taskifyapplication.core.service.WorkspaceService;
 import com.pytka.taskifyapplication.utlis.PageNavigator;
-import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
-import javafx.util.Duration;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -47,9 +49,15 @@ public class MainFrameController implements ICenterPane {
 
     private Map<WorkspaceCard, MainCenterPanel> centerPanelsMap;
 
+    private final AuthService authService;
+
     private final TaskService taskService;
 
     private final WorkspaceService workspaceService;
+
+    private final UserSettingsService userSettingsService;
+
+    private final StatsService statsService;
 
     @FXML
     public void initialize() {
@@ -57,6 +65,10 @@ public class MainFrameController implements ICenterPane {
         refresh();
 
         this.userPanel.socketsSetup();
+
+        StatsDTO statsDTO = this.statsService.getUserStats();
+
+        this.userPanel.updateStats(statsDTO);
     }
 
     @Override
@@ -68,6 +80,7 @@ public class MainFrameController implements ICenterPane {
         this.centerPanelsMap = new HashMap<>();
 
         List<WorkspaceDTO> workspaceDTOs = this.workspaceService.getWorkspacesByUserID();
+        UserSettingsDTO userSettingsDTO = this.userSettingsService.getUserSettings();
 
         for(WorkspaceDTO workspace : workspaceDTOs){
 
@@ -76,8 +89,11 @@ public class MainFrameController implements ICenterPane {
             MainCenterPanel mainCenterPanel = new MainCenterPanel(
                     taskService,
                     workspace.getID(),
-                    workspace.getTasks()
+                    workspace.getName(),
+                    workspace.getTasks(),
+                    userSettingsDTO
             );
+            mainCenterPanel.setFilters();
 
             this.centerPanelsMap.put(workspaceCard, mainCenterPanel);
 
@@ -99,6 +115,24 @@ public class MainFrameController implements ICenterPane {
 
         this.workspacesPanel.getAddWorkspaceButton().setOnMouseClicked(event -> {
             PageNavigator.getInstance().push(new WorkspacePanel(workspaceService, this));
+        });
+
+        this.workspacesPanel.getDeleteWorkspaceButton().setOnMouseClicked(event -> {
+
+            Long workspaceToDeleteID = currentCenterPanel.getWorkspaceID();
+
+            this.workspaceService.deleteWorkspace(workspaceToDeleteID);
+
+            this.refresh();
+        });
+
+        this.userPanel.getSettingsButton().setOnMouseClicked(event -> {
+
+            if(PageNavigator.getInstance().top() instanceof SettingsPanel){
+                return;
+            }
+
+            PageNavigator.getInstance().push(new SettingsPanel(authService, userSettingsService));
         });
 
         centerPane.getChildren().addAll();

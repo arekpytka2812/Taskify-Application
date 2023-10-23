@@ -17,19 +17,6 @@ public class TaskServiceImpl implements TaskService {
 
     private final RequestService requestService;
 
-//    @Override
-//    public void getTasks(TaskCallback callback) {
-//        String endpointURI = "/workspace/" + SpringMainApplication.USER_ID;
-//        CompletableFuture.supplyAsync(() -> this.requestService.getListRequest(WorkspaceDTO.class, endpointURI))
-//                .thenAccept(callback::onTaskFetched)
-//                .exceptionally(ex ->{
-//                    callback.onTaskFetched(null);
-//                    return null;
-//                });
-//
-//
-//    }
-
     @Override
     public List<WorkspaceDTO> getTasks(){
 
@@ -55,35 +42,35 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public boolean addTask(TaskDTO taskDTO) {
+    public void addTask(TaskDTO taskDTO) {
 
         String endpointURI = "/tasks/add/" + SpringMainApplication.USER_ID;
 
-        return this.requestService.postRequest(Boolean.class, taskDTO, endpointURI);
+        this.requestService.postRequest(Void.class, taskDTO, endpointURI);
     }
 
     @Override
-    public boolean updateTask(TaskDTO taskDTO) {
+    public void updateTask(TaskDTO taskDTO) {
 
         String endpointURI = "/tasks/update/" + taskDTO.getID();
 
-        return this.requestService.postRequest(Boolean.class, taskDTO, endpointURI);
+        this.requestService.postRequest(Void.class, taskDTO, endpointURI);
     }
 
     @Override
-    public boolean addUpdateInfo(Long taskID, UpdateInfoDTO updateInfoDTO) {
+    public void addUpdateInfo(Long taskID, UpdateInfoDTO updateInfoDTO) {
 
         String endpointURI = "/tasks/updateInfo/" + taskID;
 
-        return this.requestService.postRequest(Boolean.class, updateInfoDTO, endpointURI);
+        this.requestService.postRequest(Void.class, updateInfoDTO, endpointURI);
     }
 
     @Override
-    public boolean deleteTask(Long taskID) {
+    public void deleteTask(Long taskID) {
 
         String endpointURI = "/tasks/delete/" + taskID;
 
-        return this.requestService.deleteRequest(Boolean.class, endpointURI);
+        this.requestService.deleteRequest(Void.class, endpointURI);
     }
 
     public interface TaskCallback{

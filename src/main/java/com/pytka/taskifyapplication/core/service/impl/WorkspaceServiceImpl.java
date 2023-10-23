@@ -41,4 +41,12 @@ public class WorkspaceServiceImpl implements WorkspaceService {
         this.requestService.postRequest(Boolean.class, workspaceDTO, endpointURL);
     }
 
+    @Override
+    public void deleteWorkspace(Long workspaceID){
+
+        String endpointURL = "/workspace/" + workspaceID;
+
+        this.requestService.deleteRequest(Void.class, endpointURL);
+    }
+
 }

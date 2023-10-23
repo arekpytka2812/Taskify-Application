@@ -1,29 +1,37 @@
 .card{
-    -fx-padding: 20px;
-    -fx-background-color: #313866;
-    -fx-spacing: 10px;
+    -fx-padding: 10px;
+    -fx-background-color: transparent;
     -fx-alignment: center;
-    -fx-border-radius: 10px;
+    -fx-border-radius: 5px;
+    -fx-border-color: white;
 }
 
-.text-field{
-    -fx-border-color: rgba(255,255,255,0.6);
-    -fx-background-radius: 20px;
-    -fx-border-radius: 20px;
+.text-area{
+    -fx-border-radius: 5px;
+    -fx-background-color: transparent;
     -fx-text-alignment: center;
-    -fx-font-scale: 12px;
-    -fx-pref-width: 350px;
-    -fx-max-width: 350px;
-    -fx-text-fill: rgba(255,255,255,0.6);
+    -fx-text-fill: white;
 }
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .content{
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .content:focused{
+    -fx-background-color: transparent;
+}
+
 
 .label{
-    -fx-font-scale: 18px;
+    -fx-font-scale: 10px;
     -fx-font-weight: bold;
-    -fx-border-insets: 10px;
-    -fx-pref-width: 180px;
-    -fx-alignment: center;
-    -fx-text-fill: #FFFFFF;
+    -fx-pref-width: 140px;
+    -fx-alignment: center-left;
+    -fx-text-fill: white;
 }
 
 

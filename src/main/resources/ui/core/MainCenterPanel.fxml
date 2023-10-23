@@ -8,8 +8,10 @@
    <children>
       <HBox fx:id="topBox" prefHeight="42.0" prefWidth="600.0" styleClass="top-bar">
          <children>
+            <Label fx:id="workspaceLabel" styleClass="workspace-label" />
             <Button fx:id="addTaskButton" mnemonicParsing="false" styleClass="add-task-button" text="Add Task" />
-            <ComboBox fx:id="soritngCB" prefWidth="150.0" promptText="Sort" />
+            <ComboBox fx:id="taskTypeFilter" prefWidth="150.0" />
+            <ComboBox fx:id="taskPriorityFilter" prefWidth="150.0" />
          </children>
       </HBox>
       <FlowPane fx:id="tasksContainer" prefHeight="940.0" prefWidth="1200.0" styleClass="tasks-container" />

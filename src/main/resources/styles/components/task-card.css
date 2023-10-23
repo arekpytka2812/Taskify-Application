@@ -1,15 +1,20 @@
 .task-card{
-    -fx-background-color: #FE7BE5;
+    -fx-background-color: #313866;
     -fx-alignment: center;
-    -fx-opacity: 40;
     -fx-padding: 10;
-    -fx-background-radius: 20;
+    -fx-border-radius: 10px;
     -fx-border-insets: 5;
     -fx-background-insets: 5;
+    -fx-border-color: white;
+
 }
 
 .shadow{
     -fx-effect: dropShadow(three-pass-box, rgba(0,0,0,0.1), 10.0, 0.0, 0.0, 10.0);
+}
+
+.label{
+    -fx-text-fill: white;
 }
 
 .task-label{

@@ -42,8 +42,28 @@
 
 }
 
+.combo-box .list-view{
+    -fx-background-color: #313866;
+    -fx-border-radius: 5px;
+    -fx-border-color: white;
+}
+
+.combo-box .arrow{
+    -fx-background-color: white;
+}
+
+
 .combo-box .list-cell{
     -fx-text-fill: #FFFFFF;
+    -fx-background-color: transparent;
+}
+
+.workspace-label{
+    -fx-pref-width: 800px;
+    -fx-pref-height: 30px;
+    -fx-text-fill: white;
+    -fx-font-size: 22;
+    -fx-alignment: center-left;
 }
 
 .shadow{
