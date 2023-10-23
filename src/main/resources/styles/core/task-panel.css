@@ -5,6 +5,12 @@
     -fx-alignment: center;
 }
 
+.top-container{
+    -fx-alignment: center-left;
+    -fx-padding: 0 10 0 10;
+    -fx-pref-height: 20px;
+}
+
 .inner-panel{
     -fx-background-color: #504099;
     -fx-spacing: 40px;
@@ -44,8 +50,8 @@
     -fx-text-alignment: center;
     -fx-font-scale: 12px;
     -fx-font-weight: bold;
-    -fx-pref-width: 250px;
-    -fx-max-width: 250px;
+    -fx-pref-width: 300px;
+    -fx-max-width: 300px;
 }
 
 .text-field:focused{
@@ -58,8 +64,6 @@
 .scroll-pane .corner{
     -fx-background-color: rgba(0, 0, 0, 0);
 }
-
-
 
 .scroll-pane > .viewport {
     -fx-background-color: transparent;
@@ -75,13 +79,18 @@
     -fx-background-color: transparent;
 }
 
+.text-area .scroll-pane .content:focused{
+    -fx-background-color: transparent;
+}
+
 .button{
     -fx-alignment: center;
     -fx-background-radius: 10px;
     -fx-pref-width: 100px;
     -fx-text-fill: #FFFFFF;
-    -fx-border-color: rgba(255,255,255,0.6);
+    -fx-border-color: white;
     -fx-border-radius: 10px;
+    -fx-background-color: transparent;
 }
 
 .button:hover{
@@ -95,7 +104,33 @@
     -fx-border-insets: 10px;
     -fx-pref-width: 90px;
     -fx-alignment: center;
+    -fx-text-fill: white;
 }
+
+.checkbox-label{
+    -fx-pref-width: 120px;
+    -fx-alignment: center-right;
+}
+
+.combo-box{
+    -fx-background-color: transparent;
+    -fx-border-radius: 5px;
+    -fx-border-color: #FFFFFF;
+
+}
+
+.combo-box .list-cell{
+    -fx-text-fill: #FFFFFF;
+}
+
+.combo-box .arrow{
+    -fx-background-color: white;
+}
+.date-picker{
+    -fx-background-color: transparent;
+}
+
+
 
 .date-picker .arrow-button{
     -fx-background-radius: 20px;

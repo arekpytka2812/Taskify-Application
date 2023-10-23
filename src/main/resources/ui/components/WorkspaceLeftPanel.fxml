@@ -16,9 +16,10 @@
             <VBox fx:id="workspacesBox" alignment="CENTER" prefHeight="595.0" prefWidth="296.0" styleClass="workspaces-container" />
          </content>
       </ScrollPane>
-      <HBox alignment="CENTER" prefHeight="62.0" prefWidth="299.0">
+      <HBox alignment="CENTER" prefHeight="62.0" prefWidth="299.0" styleClass="button-container">
          <children>
-            <Button fx:id="addWorkspaceButton" mnemonicParsing="false" text="Add workspace!" />
+            <Button fx:id="addWorkspaceButton" mnemonicParsing="false" text="Add workspace" />
+            <Button fx:id="deleteWorkspaceButton" mnemonicParsing="false" text="Delete workspace" />
          </children>
       </HBox>
    </children>

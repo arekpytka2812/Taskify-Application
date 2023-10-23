@@ -5,6 +5,7 @@ import com.pytka.taskifyapplication.TaskifyApplication;
 import com.pytka.taskifyapplication.config.AppConfiguration;
 import com.pytka.taskifyapplication.core.controllers.core.TaskPanel;
 import com.pytka.taskifyapplication.core.models.TaskDTO;
+import com.pytka.taskifyapplication.core.models.UserSettingsDTO;
 import com.pytka.taskifyapplication.core.service.RequestService;
 import com.pytka.taskifyapplication.core.service.TaskService;
 import com.pytka.taskifyapplication.core.service.impl.TaskServiceImpl;
@@ -16,6 +17,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -37,6 +39,8 @@ public class TaskCard extends VBox {
 
     private TaskDTO task;
 
+    private UserSettingsDTO userSettingsDTO;
+
 
     public TaskCard(){
 
@@ -52,7 +56,7 @@ public class TaskCard extends VBox {
         }
     }
 
-    public TaskCard(TaskDTO task){
+    public TaskCard(TaskDTO task, UserSettingsDTO userSettingsDTO){
 
         this();
 
@@ -60,6 +64,8 @@ public class TaskCard extends VBox {
 
         this.taskNameLabel.setText(this.task.getName());
         this.taskPriorityLabel.setText(this.task.getPriority());
+
+        this.userSettingsDTO = userSettingsDTO;
 
         this.setOnMouseClicked(this::openTaskPanel);
     }
@@ -72,7 +78,7 @@ public class TaskCard extends VBox {
                 context.getBean(RequestService.class)
         );
 
-        PageNavigator.getInstance().push(new TaskPanel(service, task));
+        PageNavigator.getInstance().push(new TaskPanel(service, task, userSettingsDTO));
     }
 
 }

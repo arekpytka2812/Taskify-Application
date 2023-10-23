@@ -5,6 +5,7 @@ import com.pytka.taskifyapplication.core.models.StatsDTO;
 import com.pytka.taskifyapplication.core.models.TaskNotificationDTO;
 import com.pytka.taskifyapplication.sockets.NotificationSocketClient;
 import com.pytka.taskifyapplication.sockets.StatsSocketClient;
+import com.pytka.taskifyapplication.utlis.PageNavigator;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -79,7 +80,6 @@ public class UserRightPanel extends VBox {
         this.statsClient = new StatsSocketClient();
 
         this.notificationList = new ArrayList<>();
-
     }
 
     public void setUsername(String username){

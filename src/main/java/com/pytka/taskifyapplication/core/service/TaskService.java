@@ -16,10 +16,10 @@ public interface TaskService {
 
     TaskDTO getTaskByID(Long taskID);
 
-    boolean addTask(TaskDTO taskDTO);
-    boolean updateTask(TaskDTO taskDTO);
+    void addTask(TaskDTO taskDTO);
+    void updateTask(TaskDTO taskDTO);
 
-    boolean addUpdateInfo(Long taskID, UpdateInfoDTO updateInfoDTO);
+    void addUpdateInfo(Long taskID, UpdateInfoDTO updateInfoDTO);
 
-    boolean deleteTask(Long taskID);
+    void deleteTask(Long taskID);
 }

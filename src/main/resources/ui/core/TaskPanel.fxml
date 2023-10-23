@@ -5,37 +5,41 @@
 
 <fx:root prefHeight="787.0" prefWidth="1199.0" styleClass="task-panel" stylesheets="@../../styles/core/task-panel.css" type="VBox" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane prefHeight="40.0" prefWidth="825.0" styleClass="inner-panel">
-
-      </Pane>
+      <HBox prefHeight="100.0" prefWidth="200.0" styleClass="top-container">
+         <children>
+            <Button fx:id="exitButton" mnemonicParsing="false" text="Exit" />
+         </children>
+      </HBox>
       <HBox fx:id="mainBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="683.0" prefWidth="1155.0" styleClass="inner-panel">
          <children>
             <VBox fx:id="leftBox" alignment="CENTER" prefHeight="663.0" prefWidth="738.0" styleClass="side-panel">
                <children>
                   <HBox alignment="CENTER" prefHeight="83.0" prefWidth="604.0" styleClass="data-container">
                      <children>
-                        <Label text="Label" />
+                        <Label text="Name" />
                         <TextField fx:id="taskNameField" editable="false" prefHeight="25.0" prefWidth="396.0" styleClass="transparent" />
                      </children>
                   </HBox>
                   <VBox prefHeight="200.0" prefWidth="100.0" styleClass="data-container">
                      <children>
-                        <Label text="Label" />
+                        <Label text="Description" />
                         <TextArea fx:id="descriptionField" prefHeight="200.0" prefWidth="200.0" styleClass="text-area" />
                      </children>
                   </VBox>
                   <HBox prefHeight="59.0" prefWidth="604.0" styleClass="data-container">
                      <children>
-                        <Label text="Label" />
-                        <CheckBox fx:id="notificationsOn" mnemonicParsing="false" />
+                        <Label prefHeight="17.0" prefWidth="168.0" styleClass="checkbox-label" text="App notifications" />
+                        <CheckBox fx:id="appNotifications" mnemonicParsing="false" />
+                        <Label styleClass="checkbox-label" text="Email notifications" />
+                        <CheckBox fx:id="emailNotifications" mnemonicParsing="false" />
                      </children>
                   </HBox>
                   <VBox prefHeight="206.0" prefWidth="604.0" styleClass="data-container">
                      <children>
-                        <Label text="Label" />
-                        <ScrollPane fx:id="updatesPane" hbarPolicy="NEVER" prefHeight="240.0" prefWidth="434.0" styleClass="transparent" vbarPolicy="NEVER">
+                        <Label text="Updates" />
+                        <ScrollPane fx:id="updatesPane" hbarPolicy="NEVER" prefHeight="240.0" prefWidth="434.0" styleClass="transparent" vbarPolicy="NEVER" vvalue="1.0">
                           <content>
-                              <VBox fx:id="updatesContainer" prefHeight="224.0" prefWidth="693.0" styleClass="updates-box" />
+                              <VBox fx:id="updatesContainer" alignment="CENTER" prefHeight="224.0" prefWidth="693.0" styleClass="updates-box" />
                           </content>
                         </ScrollPane>
                      </children>
@@ -51,26 +55,22 @@
                <children>
                   <VBox prefHeight="119.0" prefWidth="212.0" styleClass="data-container">
                      <children>
-                        <Label text="Label" />
-                        <TextField fx:id="taskTypeField" disable="true" editable="false" styleClass="transparent" />
+                        <Label text="Type" />
+                        <ComboBox fx:id="taskTypeCB" prefWidth="150.0" />
                      </children>
                   </VBox>
                   <VBox prefHeight="100.0" prefWidth="212.0" styleClass="data-container">
                      <children>
-                        <Label text="Label" />
-                        <TextField fx:id="priorityField" editable="false" prefHeight="27.0" prefWidth="255.0" styleClass="transparent" />
+                        <Label text="Priority" />
+                        <ComboBox fx:id="taskPriorityCB" prefWidth="150.0" />
                      </children>
                   </VBox>
                   <VBox prefHeight="134.0" prefWidth="212.0" styleClass="data-container">
                      <children>
-                        <Label text="Label" />
-                        <DatePicker fx:id="createDatePicker" editable="false" styleClass="transparent" />
-                     </children>
-                  </VBox>
-                  <VBox prefHeight="128.0" prefWidth="212.0" styleClass="data-container">
-                     <children>
-                        <Label text="Label" />
-                        <DatePicker fx:id="expDatePicker" disable="true" editable="false" styleClass="transparent" />
+                        <Label text="Expiration date" />
+                        <DatePicker fx:id="expDatePicker" editable="false" styleClass="transparent" />
+                        <Label text="Time" />
+                        <ComboBox fx:id="timePicker" prefWidth="150.0" />
                      </children>
                   </VBox>
                   <HBox fx:id="buttonsBox" alignment="CENTER" prefHeight="62.0" prefWidth="214.0" styleClass="buttons-container">

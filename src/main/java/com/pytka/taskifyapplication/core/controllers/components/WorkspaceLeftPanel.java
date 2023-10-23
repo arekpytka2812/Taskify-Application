@@ -25,6 +25,9 @@ public class WorkspaceLeftPanel extends VBox {
     @FXML
     private Button addWorkspaceButton;
 
+    @FXML
+    private Button deleteWorkspaceButton;
+
     public WorkspaceLeftPanel(){
 
         FXMLLoader loader = new FXMLLoader(SpringMainApplication.class.getResource("/ui/components/WorkspaceLeftPanel.fxml"));
