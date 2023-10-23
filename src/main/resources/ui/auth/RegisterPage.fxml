@@ -11,7 +11,7 @@
               <Button fx:id="loginButton" mnemonicParsing="false" onAction="#loginButtonPressed" styleClass="transparent" stylesheets="@../../styles/auth/register-page.css" text="Login" />
          </children>
       </HBox>
-        <VBox prefHeight="376.0" prefWidth="560.0" styleClass="data-container">
+        <VBox prefHeight="376.0" prefWidth="945.0" styleClass="data-container">
             <children>
                 <HBox prefHeight="100.0" prefWidth="200.0" styleClass="data-field">
                     <children>
@@ -47,9 +47,9 @@
                         <PasswordField fx:id="passwordField" styleClass="transparent" />
                     </children>
                 </HBox>
-                <Label fx:id="errorLabel" text="" textFill="red" />
             </children>
         </VBox>
+          <Label fx:id="errorLabel" styleClass="error-label" textFill="red" />
         <HBox alignment="CENTER" prefHeight="63.0" prefWidth="1207.0">
             <children>
                 <Button fx:id="registerButton" mnemonicParsing="false" onAction="#registerButtonPressed" styleClass="transparent" stylesheets="@../../styles/auth/register-page.css" text="Register" />

@@ -12,24 +12,15 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Getter
 @Setter
-public class RegisterRequest {
-
-    @JsonProperty("firstname")
-    private String firstname;
-
-    @JsonProperty("lastname")
-    private String lastname;
+public class NewPasswordRequest {
 
     @JsonProperty("email")
     private String email;
 
-    @JsonProperty("username")
-    private String username;
-
     @JsonProperty("password")
     private String password;
 
-    @JsonProperty("authCode")
+    @JsonProperty("verificationCode")
     private String verificationCode;
 
     @JsonProperty("sentDate")

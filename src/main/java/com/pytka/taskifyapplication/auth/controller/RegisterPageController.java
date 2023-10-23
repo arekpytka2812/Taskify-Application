@@ -3,12 +3,14 @@ package com.pytka.taskifyapplication.auth.controller;
 import com.pytka.taskifyapplication.SpringMainApplication;
 import com.pytka.taskifyapplication.auth.model.AuthResponse;
 import com.pytka.taskifyapplication.auth.model.RegisterRequest;
+import com.pytka.taskifyapplication.auth.model.VerificationCodeRequest;
 import com.pytka.taskifyapplication.auth.service.AuthService;
 import com.pytka.taskifyapplication.utlis.PasswordChecker;
 import com.pytka.taskifyapplication.utlis.StageChanger;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -87,26 +89,34 @@ public class RegisterPageController {
                 .email(emailField.getText())
                 .username(usernameField.getText())
                 .password(passwordField.getText())
+                .verificationCode(null)
+                .sentDate(null)
                 .build();
 
-        AuthResponse response = authService.register(request);
+        VerificationCodeRequest codeRequest = VerificationCodeRequest.builder()
+                .email(emailField.getText())
+                .username(usernameField.getText())
+                .build();
 
-
-        if(response == null){
-            errorLabel.setText("Something went wrong!");
+        try{
+            this.authService.generateVerificationCode(codeRequest);
+        }
+        catch (Exception e){
+            this.errorLabel.setText("Something went wrong!");
             return;
         }
 
-        SpringMainApplication.AUTH_TOKEN = response.getToken();
-        SpringMainApplication.USER_ID = response.getID();
-
         Stage stage = StageChanger.changeStage(
                 event,
-                "/ui/core/MainFrame.fxml",
+                "/ui/auth/VerificationCodePage.fxml",
                 context
         );
 
+        ((VerificationCodePageController)stage.getScene().getUserData())
+                .setCachedRegisterData(request);
+
         stage.show();
+
     }
 
     private boolean areFieldsEmpty(){
