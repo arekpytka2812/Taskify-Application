@@ -2,6 +2,7 @@ package com.pytka.taskifyapplication.core.controllers.core;
 
 import com.pytka.taskifyapplication.SpringMainApplication;
 import com.pytka.taskifyapplication.core.controllers.ICenterPane;
+import com.pytka.taskifyapplication.core.controllers.components.AddTaskPanel;
 import com.pytka.taskifyapplication.core.controllers.components.TaskCard;
 import com.pytka.taskifyapplication.core.models.TaskDTO;
 import com.pytka.taskifyapplication.core.models.UserSettingsDTO;
@@ -159,7 +160,13 @@ public class MainCenterPanel extends VBox implements ICenterPane {
     }
 
     private void addTaskButtonPressed(MouseEvent event){
-        //TODO: handle this
+
+        PageNavigator.getInstance().push(new AddTaskPanel(
+                taskService,
+                workspaceID,
+                userSettingsDTO
+        ));
+
     }
 
     @Override
