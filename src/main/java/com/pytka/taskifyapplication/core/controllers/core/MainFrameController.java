@@ -1,6 +1,7 @@
 package com.pytka.taskifyapplication.core.controllers.core;
 
 
+import com.pytka.taskifyapplication.SpringMainApplication;
 import com.pytka.taskifyapplication.auth.service.AuthService;
 import com.pytka.taskifyapplication.core.controllers.ICenterPane;
 import com.pytka.taskifyapplication.core.controllers.components.SettingsPanel;
@@ -74,8 +75,6 @@ public class MainFrameController implements ICenterPane {
     @Override
     public void refresh(){
 
-        this.setupSidePanels();
-
         this.workspacesPanel.clear();
         this.centerPanelsMap = new HashMap<>();
 
@@ -139,13 +138,6 @@ public class MainFrameController implements ICenterPane {
 
         PageNavigator.getInstance().setRoot(centerPane);
         PageNavigator.getInstance().push(currentCenterPanel);
-    }
-
-
-    private void setupSidePanels(){
-
-        setMargin(centerPane, new Insets(0,0,0,0));
-
     }
 
 }

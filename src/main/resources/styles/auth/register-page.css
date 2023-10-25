@@ -65,18 +65,18 @@
 }
 
 .text-field:focused{
-    -fx-background-color: rgba(255,255,255,0.6);
+    -fx-background-color: white;
     -fx-text-fill: #313866;
 }
 
 
 .button:hover{
-    -fx-background-color: rgba(255,255,255,0.6);
+    -fx-background-color: white;
     -fx-text-fill: #313866;
 }
 
 .button:focused{
-    -fx-background-color: rgba(255,255,255,0.6);
+    -fx-background-color: white;
     -fx-text-fill: #313866;
 }
 

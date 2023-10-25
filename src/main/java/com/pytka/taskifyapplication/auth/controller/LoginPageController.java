@@ -76,6 +76,7 @@ public class LoginPageController {
 
         SpringMainApplication.AUTH_TOKEN = response.getToken();
         SpringMainApplication.USER_ID = response.getID();
+        SpringMainApplication.USERNAME = response.getUsername();
         SpringMainApplication.USER_EMAIL = emailField.getText();
 
         Stage stage = StageChanger.changeStage(
