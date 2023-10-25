@@ -12,13 +12,14 @@
     -fx-alignment: center;
     -fx-background-radius: 10px;
     -fx-padding: 15px;
-    -fx-background-color: #504099;
-    -fx-border-color: rgba(255,255,255,0.6);
+    -fx-background-color: transparent;
+    -fx-border-color: white;
     -fx-border-radius: 10px;
+    -fx-max-width: 500px;
 }
 
 .data-field{
-    -fx-background-color: #974EC3;
+    -fx-background-color: transparent;
     -fx-alignment: center;
     -fx-background-radius: 30px;
     -fx-padding: 5px;
@@ -37,13 +38,14 @@
 }
 
 .text-field{
-    -fx-border-color: #504099;
+    -fx-border-color: white;
     -fx-background-radius: 20px;
     -fx-border-radius: 20px;
     -fx-text-alignment: center;
     -fx-font-scale: 12px;
     -fx-font-weight: bold;
-    -fx-pref-width: 250px;
+    -fx-pref-width: 300px;
+    -fx-text-fill: white;
 }
 
 .label{
@@ -51,6 +53,7 @@
     -fx-font-weight: bold;
     -fx-border-insets: 10px;
     -fx-pref-width: 70px;
+    -fx-text-fill: white;
 }
 
 .transparent{
@@ -62,17 +65,24 @@
 }
 
 .text-field:focused{
-    -fx-background-color: #504099;
-    -fx-text-fill: rgba(255,255,255,0.6);
+    -fx-background-color: white;
+    -fx-text-fill: #313866;
 }
 
 
 .button:hover{
-    -fx-background-color: rgba(255,255,255,0.6);
-    -fx-text-fill: #504099;
+    -fx-background-color: white;
+    -fx-text-fill: #313866;
 }
 
 .button:focused{
-    -fx-background-color: rgba(255,255,255,0.6);
-    -fx-text-fill: #504099;
+    -fx-background-color: white;
+    -fx-text-fill: #313866;
+}
+
+.error-label{
+    -fx-pref-width: 200px;
+    -fx-text-fill: red;
+    -fx-pref-height: 25px;
+    -fx-alignment: center;
 }

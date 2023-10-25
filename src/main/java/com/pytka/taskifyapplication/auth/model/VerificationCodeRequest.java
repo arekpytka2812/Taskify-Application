@@ -9,14 +9,12 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class AuthResponse {
+public class VerificationCodeRequest {
 
-    @JsonProperty("token")
-    private String token;
-
-    @JsonProperty("id")
-    private Long ID;
+    @JsonProperty("email")
+    private String email;
 
     @JsonProperty("username")
     private String username;
+
 }

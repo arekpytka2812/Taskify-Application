@@ -24,12 +24,6 @@
                       <PasswordField fx:id="passwordField" styleClass="transparent" />
                   </children>
               </HBox>
-              <HBox prefHeight="100.0" prefWidth="200.0" styleClass="data-field">
-                  <children>
-                      <Label text="Remember me: " />
-                      <CheckBox fx:id="rememberMeCheckBox" mnemonicParsing="false" />
-                  </children>
-              </HBox>
          </children>
       </VBox>
       <HBox alignment="CENTER" prefHeight="52.0" prefWidth="960.0">

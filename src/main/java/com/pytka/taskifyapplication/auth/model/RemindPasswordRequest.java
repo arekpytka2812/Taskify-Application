@@ -9,14 +9,8 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class AuthResponse {
+public class RemindPasswordRequest {
 
-    @JsonProperty("token")
-    private String token;
-
-    @JsonProperty("id")
-    private Long ID;
-
-    @JsonProperty("username")
-    private String username;
+    @JsonProperty("email")
+    private String email;
 }

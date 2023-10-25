@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="608.0" prefWidth="533.0" styleClass="page" stylesheets="@../../styles/auth/verificationcode-page.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pytka.taskifyapplication.auth.controller.VerificationCodePageController">
+   <children>
+      <VBox prefHeight="90.0" prefWidth="533.0" styleClass="top-container">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" styleClass="top-buttons-panel">
+               <children>
+                  <Button fx:id="exitButton" onAction="#exitButtonPressed" mnemonicParsing="false" text="Exit" />
+                  <Button fx:id="resendButton" onAction="#resendButtonPressed" mnemonicParsing="false" text="Resend" />
+               </children>
+            </HBox>
+            <Label fx:id="notificationLabel" styleClass="notification-label" />
+         </children>
+      </VBox>
+      <VBox prefHeight="349.0" prefWidth="533.0" styleClass="main-container">
+         <children>
+            <Label text="Verification code has been sent to email:" />
+            <Label fx:id="emailLabel" prefHeight="20.0" prefWidth="192.0" />
+            <Label text="Paste received code here:" />
+            <TextField fx:id="codeField"/>
+         </children>
+      </VBox>
+      <VBox prefHeight="122.0" prefWidth="533.0" styleClass="bottom-container">
+         <children>
+            <Label fx:id="errorLabel" styleClass="error-label" />
+            <Button fx:id="sendButton" onAction="#sendButtonPressed" mnemonicParsing="false" text="Send code" />
+         </children>
+      </VBox>
+   </children>
+</VBox>

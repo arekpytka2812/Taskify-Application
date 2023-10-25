@@ -1,5 +1,6 @@
 package com.pytka.taskifyapplication.core.controllers.components;
 
+import com.pytka.taskifyapplication.SpringMainApplication;
 import com.pytka.taskifyapplication.TaskifyApplication;
 import com.pytka.taskifyapplication.core.models.StatsDTO;
 import com.pytka.taskifyapplication.core.models.TaskNotificationDTO;
@@ -80,6 +81,8 @@ public class UserRightPanel extends VBox {
         this.statsClient = new StatsSocketClient();
 
         this.notificationList = new ArrayList<>();
+
+        this.usernameLabel.setText(SpringMainApplication.USERNAME);
     }
 
     public void setUsername(String username){

@@ -28,9 +28,6 @@ public class LoginPageController {
     private PasswordField passwordField;
 
     @FXML
-    private CheckBox rememberMeCheckBox;
-
-    @FXML
     private Label errorLabel;
 
     @FXML
@@ -79,10 +76,8 @@ public class LoginPageController {
 
         SpringMainApplication.AUTH_TOKEN = response.getToken();
         SpringMainApplication.USER_ID = response.getID();
+        SpringMainApplication.USERNAME = response.getUsername();
         SpringMainApplication.USER_EMAIL = emailField.getText();
-
-        // TODO: handle remember me checkBox
-
 
         Stage stage = StageChanger.changeStage(
                 event,
