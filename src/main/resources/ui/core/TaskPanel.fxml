@@ -17,7 +17,7 @@
                   <HBox alignment="CENTER" prefHeight="83.0" prefWidth="604.0" styleClass="data-container">
                      <children>
                         <Label text="Name" />
-                        <TextField fx:id="taskNameField" editable="false" prefHeight="25.0" prefWidth="396.0" styleClass="transparent" />
+                        <TextField fx:id="taskNameField" prefHeight="25.0" prefWidth="396.0" styleClass="transparent" />
                      </children>
                   </HBox>
                   <VBox prefHeight="200.0" prefWidth="100.0" styleClass="data-container">
@@ -34,7 +34,7 @@
                         <CheckBox fx:id="emailNotifications" mnemonicParsing="false" />
                      </children>
                   </HBox>
-                  <VBox prefHeight="206.0" prefWidth="604.0" styleClass="data-container">
+                  <VBox prefHeight="242.0" prefWidth="716.0" styleClass="data-container">
                      <children>
                         <Label text="Updates" />
                         <ScrollPane fx:id="updatesPane" hbarPolicy="NEVER" prefHeight="240.0" prefWidth="434.0" styleClass="transparent" vbarPolicy="NEVER" vvalue="1.0">
@@ -42,13 +42,9 @@
                               <VBox fx:id="updatesContainer" alignment="CENTER" prefHeight="224.0" prefWidth="693.0" styleClass="updates-box" />
                           </content>
                         </ScrollPane>
-                     </children>
-                  </VBox>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="data-container">
-                     <children>
                         <Button fx:id="addUpdateInfoButton" mnemonicParsing="false" styleClass="transparent" text="Add update" />
                      </children>
-                  </HBox>
+                  </VBox>
                </children>
             </VBox>
             <VBox fx:id="rightBox" prefHeight="663.0" prefWidth="317.0" styleClass="side-panel">

@@ -1,7 +1,7 @@
 .task-panel{
-    -fx-padding: 20px;
+    -fx-padding: 10px;
     -fx-background-color: #313866;
-    -fx-spacing: 20px;
+    -fx-spacing: 10px;
     -fx-alignment: center;
 }
 
@@ -12,15 +12,13 @@
 }
 
 .inner-panel{
-    -fx-background-color: #504099;
+    -fx-background-color: transparent;
     -fx-spacing: 40px;
     -fx-padding: 10px;
-    -fx-background-radius: 20px;
-
 }
 
 .side-panel{
-    -fx-background-color: #974EC3;
+    -fx-background-color: transparent;
     -fx-spacing: 20px;
     -fx-border-color: #313866;
     -fx-border-radius: 20px;
@@ -33,8 +31,8 @@
     -fx-alignment: center;
     -fx-padding: 10px;
     -fx-spacing: 10px;
-    -fx-border-color: #313866;
-    -fx-border-radius: 20px;
+    -fx-border-color: white;
+    -fx-border-radius: 5px;
 }
 
 .buttons-container{
@@ -44,25 +42,28 @@
 }
 
 .text-field{
-    -fx-border-color: #504099;
-    -fx-background-radius: 20px;
-    -fx-border-radius: 20px;
-    -fx-text-alignment: center;
+    -fx-border-color: white;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-text-fill: white;
     -fx-font-scale: 12px;
-    -fx-font-weight: bold;
     -fx-pref-width: 300px;
-    -fx-max-width: 300px;
+    -fx-background-color: transparent;
 }
 
 .text-field:focused{
-    -fx-background-color: rgba(80, 64, 153, 0.7);
-    -fx-text-fill: rgba(255,255,255,0.6);
+    -fx-background-color: white;
+    -fx-text-fill: #313866;
 }
 
-
+.scroll-pane{
+    -fx-background-color: #313866;
+    -fx-border-color: #FFFFFF;
+    -fx-border-radius: 10px;
+}
 
 .scroll-pane .corner{
-    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-background-color: transparent;
 }
 
 .scroll-pane > .viewport {
@@ -70,17 +71,26 @@
 }
 
 .text-area{
-    -fx-background-color: transparent;
-    -fx-border-color: #504099;
-    -fx-border-radius: 10px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: white;
+    -fx-text-fill: white;
 }
 
-.text-area .scroll-pane .content{
-    -fx-background-color: transparent;
+.text-area:focused{
+    -fx-control-inner-background: transparent;
+    -fx-text-fill: white;
 }
 
-.text-area .scroll-pane .content:focused{
+.text-area .scroll-pane {
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-control-inner-background: #313866;
+}
+
+.text-area .content:focused{
     -fx-background-color: transparent;
+    -fx-text-fill: #313866;
 }
 
 .button{
@@ -94,8 +104,8 @@
 }
 
 .button:hover{
-    -fx-background-color: rgba(255,255,255,0.6);
-    -fx-text-fill: rgba(151, 78, 195, 1.0);
+    -fx-background-color: white;
+    -fx-text-fill: #313866;
 }
 
 .label{
@@ -119,52 +129,81 @@
 
 }
 
-.combo-box .list-cell{
-    -fx-text-fill: #FFFFFF;
+.combo-box .list-view{
+    -fx-background-color: #313866;
+    -fx-border-radius: 5px;
+    -fx-border-color: white;
 }
 
 .combo-box .arrow{
     -fx-background-color: white;
 }
+
+
+.combo-box .list-cell{
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: transparent;
+}
+
 .date-picker{
     -fx-background-color: transparent;
 }
 
-
-
-.date-picker .arrow-button{
-    -fx-background-radius: 20px;
-    -fx-border-radius: 20px;
-    -fx-alignment: center;
-    -fx-pref-width: 30px;
-    -fx-background-color: #313866;
-}
-
-.date-picker .arrow-button:focused{
-    -fx-background-color: rgba(80, 64, 153, 0.7);
-}
-
-/* Set the background of the text field to transparent */
-.date-picker .text-field {
-    -fx-background-color: rgba(0, 0, 0, 0);
+.date-picker .text-field{
+    -fx-text-fill: white;
 }
 
 .date-picker .text-field:focused{
-    -fx-background-color: rgba(80, 64, 153, 0.7);
-    -fx-text-fill: rgba(255,255,255,0.6);
+    -fx-text-fill: #313866;
 }
 
-.check-box .box{
-    -fx-border-radius: 5px;
-    -fx-border-color: #313866;
+.date-picker .arrow-button{
     -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-radius: 5px;
 }
 
-.check-box .mark:selected{
+.date-picker .arrow-button:hover{
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-radius: 5px;
+}
+
+.date-picker .cell{
+    -fx-border-radius: 5px;
+    -fx-border-color: white;
+    -fx-background-color: #313866;
+    -fx-text-fill: white;
+}
+
+.date-picker .cell:hover,
+.date-picker .cell:selected{
+    -fx-border-radius: 5px;
+    -fx-border-color: white;
+    -fx-background-color: white;
+    -fx-text-fill: #313866;
+}
+
+.date-picker-popup .month-year-pane{
     -fx-background-color: #313866;
 }
 
-.transparent{
-    -fx-background-color: rgba(0,0,0,0);
+.date-picker-popup .week-number-cell{
+    -fx-background-color: #504099;
+}
+
+.date-picker-popup .spinner{
+    -fx-background-color: #313866;
+}
+
+
+.check-box .box{
+    -fx-border-color: white;
+    -fx-border-radius: 5px;
+    -fx-background-color: #313866;
+}
+
+.check-box:selected > .box > .mark{
+    -fx-background-color: white;
 }
 
