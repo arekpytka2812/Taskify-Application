@@ -1,0 +1,80 @@
+.panel{
+    -fx-background-color: transparent;
+}
+
+.top-container{
+    -fx-padding: 10px;
+    -fx-alignment: center-left;
+    -fx-background-color: transparent;
+}
+
+.data-container{
+    -fx-spacing: 10px;
+    -fx-alignment: center;
+    -fx-background-color: transparent;
+    -fx-padding: 10px;
+}
+
+.view-container{
+    -fx-alignment: center;
+    -fx-pref-width: 200px;
+    -fx-background-color: transparent;
+}
+
+.password-container{
+    -fx-pref-width: 400px;
+    -fx-alignment: top-center;
+    -fx-spacing: 10px;
+    -fx-background-color: transparent;
+}
+
+.field-container{
+    -fx-alignment: center-left;
+    -fx-background-color: transparent;
+}
+
+.password-field{
+    -fx-pref-width: 200px;
+}
+
+.list-view{
+    -fx-pref-height: 400px;
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-radius: 5px;
+}
+
+.list-cell{
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
+}
+
+.list-cell:selected{
+    -fx-background-color: white;
+    -fx-text-fill: #313866;
+}
+
+.label{
+    -fx-text-fill: white;
+    -fx-pref-width: 100px;
+}
+
+.button{
+    -fx-alignment: center;
+    -fx-background-radius: 10px;
+    -fx-background-color: transparent;
+    -fx-pref-width: 100px;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: rgba(255,255,255,0.6);
+    -fx-border-radius: 10px;
+}
+
+.button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.6);
+    -fx-text-fill: #313866;
+}
+
+.separator{
+    -fx-text-fill: white;
+    -fx-pref-width: 1px;
+}

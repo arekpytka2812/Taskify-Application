@@ -1,15 +1,19 @@
 .center-panel{
-    -fx-background-color: #504099;
+    -fx-background-color: transparent;
     -fx-background-radius: 10;
+    -fx-border-radius: 10;
 }
 
 .top-bar{
-    -fx-alignment: center;
+    -fx-alignment: center-right;
     -fx-padding: 10;
+    -fx-spacing: 10px;
 }
 
 .tasks-container{
-    -fx-background-color: #974EC3;
+    -fx-border-radius: 10;
+    -fx-background-color: transparent;
+    -fx-border-color: #FFFFFF;
     -fx-background-radius: 10;
     -fx-padding: 10;
     -fx-alignment: center;
@@ -18,14 +22,48 @@
 }
 
 .add-task-button{
-    -fx-background-radius: 5;
-    -fx-padding: 10px;
-    -fx-border-insets: 5px;
-    -fx-background-insets: 5px;
+    -fx-alignment: center;
+    -fx-pref-width: 100px;
+    -fx-border-color: white;
+    -fx-border-radius: 5px;
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
 }
 
-.sorting-cb{
-    -fx-background-radius: 5;
+.add-task-button:hover{
+    -fx-background-color: white;
+    -fx-text-fill: #313866;
+}
+
+.combo-box{
+    -fx-background-color: transparent;
+    -fx-border-radius: 5px;
+    -fx-border-color: #FFFFFF;
+
+}
+
+.combo-box .list-view{
+    -fx-background-color: #313866;
+    -fx-border-radius: 5px;
+    -fx-border-color: white;
+}
+
+.combo-box .arrow{
+    -fx-background-color: white;
+}
+
+
+.combo-box .list-cell{
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: transparent;
+}
+
+.workspace-label{
+    -fx-pref-width: 800px;
+    -fx-pref-height: 30px;
+    -fx-text-fill: white;
+    -fx-font-size: 22;
+    -fx-alignment: center-left;
 }
 
 .shadow{

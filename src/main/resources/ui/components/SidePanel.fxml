@@ -7,7 +7,7 @@
 
 
 <?import javafx.scene.layout.HBox?>
-<?import com.pytka.taskifyapplication.controllers.components.IconButton?>
+<?import com.pytka.taskifyapplication.core.controllers.components.IconButton?>
 <fx:root type="VBox" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080" prefWidth="400" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox fx:id="mainBox" alignment="CENTER" prefHeight="486.0" prefWidth="242.0">

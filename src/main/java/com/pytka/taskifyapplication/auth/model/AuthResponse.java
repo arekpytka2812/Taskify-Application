@@ -16,4 +16,7 @@ public class AuthResponse {
 
     @JsonProperty("id")
     private Long ID;
+
+    @JsonProperty("username")
+    private String username;
 }

@@ -16,6 +16,12 @@ public class SpringMainApplication {
 
     public static Long USER_ID;
 
+    public static String USERNAME;
+
+    public static String USER_EMAIL;
+
+    public static Boolean IS_CONNECTED_TO_NETWORK;
+
     public static void main(String[] args) {
         Application.launch(TaskifyApplication.class, args);
     }

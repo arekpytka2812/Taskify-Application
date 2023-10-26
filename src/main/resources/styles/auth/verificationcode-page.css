@@ -1,0 +1,84 @@
+.page{
+    -fx-background-color: #313866;
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+}
+
+.top-container{
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+    -fx-spacing: 10;
+
+}
+
+.top-buttons-panel{
+    -fx-alignment: center;
+    -fx-spacing: 350px;
+}
+
+.main-container{
+    -fx-alignment: center;
+    -fx-border-radius: 5px;
+    -fx-border-color: white;
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+}
+
+.bottom-container{
+    -fx-alignment: center;
+    -fx-spacing: 30px;
+}
+
+.label{
+    -fx-text-fill: white;
+    -fx-pref-height: 30px;
+    -fx-pref-width: 300px;
+    -fx-alignment: center;
+}
+
+.text-field{
+    -fx-pref-width: 200px;
+    -fx-max-width: 200px;
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-radius: 5px;
+    -fx-text-alignment: center;
+}
+
+.text-field:focused{
+    -fx-background-color: white;
+    -fx-text-fill: #313866;
+}
+
+.button{
+    -fx-alignment: center;
+    -fx-background-radius: 10px;
+    -fx-pref-width: 80px;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: white;
+    -fx-border-radius: 10px;
+    -fx-background-color: transparent;
+}
+
+.button:hover{
+    -fx-background-color: rgba(255,255,255,0.6);
+    -fx-text-fill: #313866;
+}
+
+.button:focused{
+    -fx-background-color: rgba(255,255,255,0.6);
+    -fx-text-fill: #313866;
+}
+
+.notification-label{
+    -fx-pref-width: 400px;
+    -fx-pref-height: 30px;
+    -fx-alignment: center;
+}
+
+.error-label{
+    -fx-text-fill: red;
+    -fx-pref-width: 200px;
+    -fx-alignment: center;
+}

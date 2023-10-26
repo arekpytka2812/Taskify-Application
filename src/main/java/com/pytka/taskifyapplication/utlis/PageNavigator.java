@@ -2,9 +2,8 @@ package com.pytka.taskifyapplication.utlis;
 
 import java.util.Stack;
 
-import com.pytka.taskifyapplication.controllers.ICenterPane;
+import com.pytka.taskifyapplication.core.controllers.ICenterPane;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
 
 public class PageNavigator {
@@ -37,6 +36,9 @@ public class PageNavigator {
         this.root = root;
     }
 
+    public ICenterPane top(){
+        return this.pagesStack.peek();
+    }
 
     public void push(ICenterPane newParent){
 

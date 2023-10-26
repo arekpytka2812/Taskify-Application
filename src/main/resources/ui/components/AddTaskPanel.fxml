@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<fx:root type="VBox"  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="606.0" prefWidth="867.0" styleClass="panel" stylesheets="@../../styles/components/addtask-panel.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" >
+   <children>
+      <HBox prefHeight="68.0" prefWidth="867.0" styleClass="top-container">
+         <children>
+            <Button fx:id="exitButton" mnemonicParsing="false" text="Exit" />
+            <Label styleClass="title-label" text="Create new task" />
+         </children>
+      </HBox>
+      <HBox prefHeight="442.0" prefWidth="867.0" styleClass="panels-container">
+         <children>
+            <VBox prefHeight="100.0" prefWidth="589.0" styleClass="left-panel">
+               <children>
+                  <HBox prefHeight="67.0" prefWidth="569.0" styleClass="component-container">
+                     <children>
+                        <Label text="Name" />
+                        <TextField fx:id="nameField"/>
+                     </children>
+                  </HBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" styleClass="component-container">
+                     <children>
+                        <Label text="Description" />
+                        <TextArea fx:id="descriptionArea" prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                  </VBox>
+                  <HBox prefHeight="82.0" prefWidth="569.0" styleClass="component-container">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" styleClass="check-box-container">
+                           <children>
+                              <Label text="App notifications" />
+                              <CheckBox fx:id="appNotificationsBox" mnemonicParsing="false" />
+                           </children>
+                        </HBox>
+                        <Separator orientation="VERTICAL" prefHeight="60.0" prefWidth="0.0" />
+                        <HBox prefHeight="100.0" prefWidth="200.0" styleClass="check-box-container">
+                           <children>
+                              <Label text="Email notifications" />
+                              <CheckBox fx:id="emailNotificationsBox" mnemonicParsing="false" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="100.0" prefWidth="269.0" styleClass="right-panel">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" styleClass="component-container">
+                     <children>
+                        <Label text="Task type" />
+                        <ComboBox fx:id="taskTypeCB" prefWidth="150.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" styleClass="component-container">
+                     <children>
+                        <Label text="Task priority" />
+                        <ComboBox fx:id="taskPriorityCB" prefWidth="150.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" styleClass="component-container">
+                     <children>
+                        <Label text="Expiration date" />
+                        <DatePicker fx:id="expDatePicker" />
+                        <Label text="Time" />
+                        <ComboBox fx:id="expTimeCB" prefWidth="150.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" styleClass="bottom-container">
+         <children>
+            <Button fx:id="createButton" mnemonicParsing="false" text="Create" />
+         </children>
+      </HBox>
+   </children>
+</fx:root>

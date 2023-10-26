@@ -1,0 +1,203 @@
+.panel{
+    -fx-background-color: #313866;
+    -fx-spacing: 10px;
+}
+
+.top-container{
+    -fx-padding: 10px;
+    -fx-alignment: center-left;
+    -fx-spacing: 100px;
+}
+
+.panels-container{
+    -fx-spacing: 10px;
+}
+
+.left-panel{
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+}
+
+.right-panel{
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+}
+
+.component-container{
+    -fx-border-radius: 5px;
+    -fx-border-color: white;
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+    -fx-spacing: 5px;
+    -fx-padding: 10px;
+}
+
+.check-box-container{
+    -fx-alignment: center;
+    -fx-spacing: 5px;
+    -fx-padding: 10px;
+}
+
+.bottom-container{
+    -fx-alignment: center;
+    -fx-spacing: 10px;
+}
+
+.button{
+    -fx-alignment: center;
+    -fx-background-radius: 5px;
+    -fx-pref-width: 100px;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: white;
+    -fx-border-radius: 5px;
+    -fx-background-color: transparent;
+}
+
+.button:hover{
+    -fx-background-color: white;
+    -fx-text-fill: #313866;
+}
+
+.button:focused{
+    -fx-background-color: white;
+    -fx-text-fill: #313866;
+}
+
+.text-field{
+    -fx-border-color: white;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-font-scale: 12px;
+    -fx-pref-width: 300px;
+    -fx-background-color: transparent;
+}
+
+.text-field:focused{
+    -fx-background-color: white;
+    -fx-text-fill: #313866;
+}
+
+.text-area{
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+}
+
+.text-area:focused{
+    -fx-control-inner-background: transparent;
+    -fx-text-fill: white;
+}
+
+.text-area .scroll-pane {
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-control-inner-background: #313866;
+}
+
+.text-area .content:focused{
+    -fx-background-color: transparent;
+    -fx-text-fill: #313866;
+}
+
+.separator{
+    -fx-text-fill: white;
+    -fx-pref-width: 1px;
+}
+
+.combo-box{
+    -fx-background-color: transparent;
+    -fx-border-radius: 5px;
+    -fx-border-color: #FFFFFF;
+
+}
+
+.combo-box .list-view{
+    -fx-background-color: #313866;
+    -fx-border-radius: 5px;
+    -fx-border-color: white;
+}
+
+.combo-box .arrow{
+    -fx-background-color: white;
+}
+
+
+.combo-box .list-cell{
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: transparent;
+}
+
+.date-picker{
+    -fx-background-color: transparent;
+}
+
+.date-picker .text-field{
+    -fx-text-fill: white;
+}
+
+.date-picker .text-field:focused{
+    -fx-text-fill: #313866;
+}
+
+.date-picker .arrow-button{
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-radius: 5px;
+}
+
+.date-picker .arrow-button:hover{
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-radius: 5px;
+}
+
+.date-picker .cell{
+    -fx-border-radius: 5px;
+    -fx-border-color: white;
+    -fx-background-color: #313866;
+    -fx-text-fill: white;
+}
+
+.date-picker .cell:hover,
+.date-picker .cell:selected{
+    -fx-border-radius: 5px;
+    -fx-border-color: white;
+    -fx-background-color: white;
+    -fx-text-fill: #313866;
+}
+
+.date-picker-popup .month-year-pane{
+    -fx-background-color: #313866;
+}
+
+.date-picker-popup .week-number-cell{
+    -fx-background-color: #504099;
+}
+
+.date-picker-popup .spinner{
+    -fx-background-color: #313866;
+}
+
+.label{
+    -fx-alignment: center;
+    -fx-pref-width: 120px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.title-label{
+    -fx-alignment: center-left;
+    -fx-font-size: 22px;
+    -fx-pref-width: 550px;
+}
+
+.check-box .box{
+    -fx-border-color: white;
+    -fx-border-radius: 5px;
+    -fx-background-color: #313866;
+}
+
+.check-box:selected > .box > .mark{
+    -fx-background-color: white;
+}

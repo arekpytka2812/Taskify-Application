@@ -1,8 +1,16 @@
 .workspace-card{
     -fx-padding: 10;
-    -fx-background-radius: 20;
+    -fx-border-radius: 20;
     -fx-background-color: transparent;
     -fx-opacity: 40;
+    -fx-border-color: #FFFFFF;
+    -fx-pref-width: 280px;
+    -fx-alignment: center;
+}
+
+.label{
+    -fx-font-size: 18px;
+    -fx-pref-width: 270px;
 }
 
 .shadow{

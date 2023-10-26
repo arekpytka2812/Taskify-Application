@@ -1,0 +1,72 @@
+.panel{
+    -fx-background-color: #313866;
+    -fx-spacing: 10px;
+}
+
+.top-container{
+    -fx-spacing: 100px;
+    -fx-alignment: center-right;
+    -fx-padding: 0 10 0 10;
+}
+
+.scroll-pane{
+    -fx-background-color: #313866;
+    -fx-border-color: #FFFFFF;
+    -fx-border-radius: 10px;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.stats-container{
+    -fx-background-color: #313866;
+    -fx-border-color: #FFFFFF;
+    -fx-border-radius: 10px;
+}
+
+.label{
+    -fx-pref-height: 50;
+    -fx-text-fill: #FFFFFF;
+}
+
+.description-label{
+    -fx-pref-width: 140;
+    -fx-alignment: center-left;
+}
+
+.value-label{
+    -fx-pref-width: 80;
+    -fx-alignment: center;
+}
+
+.button{
+    -fx-alignment: center;
+    -fx-background-radius: 10px;
+    -fx-pref-width: 100px;
+    -fx-border-color: rgba(255,255,255,0.8);
+    -fx-border-radius: 10px;
+    -fx-text-fill: rgba(255,255,255,0.8);
+    -fx-background-color: transparent;
+}
+
+.button:hover{
+    -fx-background-color: rgba(255,255,255,0.6);
+    -fx-text-fill: #313866;
+}
+
+.stats-box{
+    -fx-alignment: center;
+    -fx-pref-height: 40px;
+}
+
+.username-label{
+    -fx-alignment: center;
+
+}
+
+.section-label{
+    -fx-pref-width: 100px;
+    -fx-pref-height: 30px;
+    -fx-padding: 10 5 5 10;
+}

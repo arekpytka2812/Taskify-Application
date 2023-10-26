@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="login-page" stylesheets="@../../styles/auth/login-page.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pytka.taskifyapplication.controllers.auth.LoginPageController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="login-page" stylesheets="@../../styles/auth/login-page.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pytka.taskifyapplication.auth.controller.LoginPageController">
     <children>
         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
             <children>
@@ -22,12 +22,6 @@
                   <children>
                       <Label text="Password: " />
                       <PasswordField fx:id="passwordField" styleClass="transparent" />
-                  </children>
-              </HBox>
-              <HBox prefHeight="100.0" prefWidth="200.0" styleClass="data-field">
-                  <children>
-                      <Label text="Remember me: " />
-                      <CheckBox fx:id="rememberMeCheckBox" mnemonicParsing="false" />
                   </children>
               </HBox>
          </children>
